@@ -24,7 +24,7 @@ describe('AddItemModal Component Tests', () => {
     expect(saveBtn).toBeDisabled();
 
     // Click + on Scooter
-    const plusButtons = screen.getAllByRole('button', { name: '+' });
+    const plusButtons = screen.getAllByRole('button', { name: /Tambah/i });
     fireEvent.click(plusButtons[0]);
 
     // Now total should show Rp 30.000 and save button enabled
@@ -32,7 +32,7 @@ describe('AddItemModal Component Tests', () => {
     expect(saveBtn).not.toBeDisabled();
 
     // Decrease quantity
-    const minusButtons = screen.getAllByRole('button', { name: '−' });
+    const minusButtons = screen.getAllByRole('button', { name: /Kurang/i });
     fireEvent.click(minusButtons[0]);
     expect(screen.getByText(/^Rp 0$/i)).toBeInTheDocument();
     expect(saveBtn).toBeDisabled();
@@ -46,7 +46,7 @@ describe('AddItemModal Component Tests', () => {
     render(<AddItemModal session={session} onClose={onClose} onSave={onSave} itemsCatalog={mockCatalog} />);
 
     // Add 1 Scooter
-    const plusButtons = screen.getAllByRole('button', { name: '+' });
+    const plusButtons = screen.getAllByRole('button', { name: /Tambah/i });
     fireEvent.click(plusButtons[0]);
 
     // Select QRIS
@@ -73,7 +73,7 @@ describe('AddItemModal Component Tests', () => {
     render(<AddItemModal session={session} onClose={onClose} onSave={onSave} itemsCatalog={mockCatalog} />);
 
     // Add 1 Scooter (Rp 30.000)
-    const plusButtons = screen.getAllByRole('button', { name: '+' });
+    const plusButtons = screen.getAllByRole('button', { name: /Tambah/i });
     fireEvent.click(plusButtons[0]);
 
     const cashInput = screen.getByPlaceholderText(/Contoh: 30000/i);

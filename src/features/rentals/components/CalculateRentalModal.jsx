@@ -11,17 +11,14 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
   const isAdmin = currentUserRole === 'admin';
   // Guard: if startTime is 0 / epoch 1970 (backend NaN bug), default to now
   // Only clamp if before year 2020 — old-but-valid sessions are still valid
-  const safeStart = (session.startTime && session.startTime > 1577836800000)
-    ? session.startTime
+  const safeStart = (session?.startTime && Number(session.startTime) > 1577836800000)
+    ? Number(session.startTime)
     : Date.now();
   const [elapsed, setElapsed] = useState(() => Math.floor((Date.now() - safeStart) / 1000));
   const [elapsedMin, setElapsedMin] = useState(() => Math.floor((Date.now() - safeStart) / 1000) / 60);
   const [itemsCalc, setItemsCalc] = useState([]);
 
   useEffect(() => {
-    const safeStart = (session.startTime && session.startTime > 1577836800000)
-      ? session.startTime
-      : Date.now();
     const el = Math.floor((Date.now() - safeStart) / 1000);
     const elMin = el / 60;
     setElapsed(el);
@@ -43,7 +40,7 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
       };
     }).filter(Boolean);
     setItemsCalc(initial);
-  }, [session]);
+  }, [session, safeStart]);
 
   const handleReturnQtyChange = (idx, delta) => {
     const now = Date.now();

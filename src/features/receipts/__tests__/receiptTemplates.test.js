@@ -110,6 +110,10 @@ describe('Receipt Templates Unit Tests', () => {
   });
 
   describe('generateAdditionalReceiptHTML', () => {
+    it('returns empty string for null session', () => {
+      expect(generateAdditionalReceiptHTML(null)).toBe('');
+    });
+
     it('generates HTML containing *** ADDITIONAL ORDER *** at the very top before brand name', () => {
       const session = {
         id: 's-123',

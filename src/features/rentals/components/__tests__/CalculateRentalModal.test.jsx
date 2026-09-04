@@ -86,4 +86,51 @@ describe('CalculateRentalModal Component Tests', () => {
     const paymentData = onProceedPayment.mock.calls[0][0];
     expect(paymentData.base).toBe(40000); // only stroller returned
   });
+
+  it('adjusting return quantities does not throw any error and updates calculation properly', () => {
+    const now = Date.now();
+    const session = {
+      id: 's-456',
+      queueNo: 5,
+      nama: 'Charlie',
+      startTime: now - (90 * 60 * 1000),
+      items: [
+        { code: 'STROLLER', qty: 2, startTime: now - (90 * 60 * 1000) }
+      ]
+    };
+
+    const onProceedPayment = vi.fn();
+
+    render(
+      <CalculateRentalModal
+        session={session}
+        onClose={vi.fn()}
+        onProceedPayment={onProceedPayment}
+      />
+    );
+
+    // Initial: 2 units stroller at 90 min (30m OT -> 1x half hour OT: 20.000 per unit -> 40.000 total OT)
+    const minusBtn = screen.getByRole('button', { name: '-' });
+    const plusBtn = screen.getByRole('button', { name: '+' });
+
+    // Decrease returnQty from 2 to 1 without error
+    expect(() => fireEvent.click(minusBtn)).not.toThrow();
+
+    // Increase returnQty back from 1 to 2 without error
+    expect(() => fireEvent.click(plusBtn)).not.toThrow();
+
+    // Decrease returnQty back to 1 without error
+    expect(() => fireEvent.click(minusBtn)).not.toThrow();
+
+    // Proceed to verify calculation updated for 1 unit
+    const proceedBtn = screen.getByRole('button', { name: /Lanjut Pembayaran/i });
+    fireEvent.click(proceedBtn);
+
+    expect(onProceedPayment).toHaveBeenCalledTimes(1);
+    const paymentData = onProceedPayment.mock.calls[0][0];
+    expect(paymentData.base).toBe(40000); // 1 unit * 40000
+    expect(paymentData.ot).toBe(20000);   // 1 unit * 20000
+    expect(paymentData.grand).toBe(20000);
+    expect(paymentData.itemsCalc[0].returnQty).toBe(1);
+  });
 });

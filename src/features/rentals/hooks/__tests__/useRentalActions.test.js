@@ -261,5 +261,36 @@ describe('useRentalActions Hook Unit Tests', () => {
       'qris'
     );
   });
+
+  it('addItemsToRental handles API rejection, calling swalError and returning success: false', async () => {
+    const setActiveSessions = vi.fn();
+    const onAdditionalAdded = vi.fn();
+    api.editSession.mockRejectedValue(new Error('Network error'));
+
+    const mockSession = {
+      id: 's-test',
+      queueNo: 1,
+      nama: 'Budi',
+      startTime: 1000000,
+      items: [{ code: 'STROLLER', qty: 1 }]
+    };
+
+    const { result } = renderHook(() =>
+      useRentalActions({
+        setActiveSessions,
+        onAdditionalAdded
+      })
+    );
+
+    let res;
+    await act(async () => {
+      res = await result.current.addItemsToRental(mockSession, [{ code: 'SCOOTER', qty: 1 }], 'cash');
+    });
+
+    expect(res.success).toBe(false);
+    expect(swal.swalError).toHaveBeenCalledWith('Gagal Tambah Item', 'Periksa koneksi ke server.');
+    expect(setActiveSessions).not.toHaveBeenCalled();
+    expect(onAdditionalAdded).not.toHaveBeenCalled();
+  });
 });
 

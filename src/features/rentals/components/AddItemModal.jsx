@@ -91,12 +91,14 @@ function AddItemModal({ session, onClose, onSave, itemsCatalog = ITEMS }) {
                         className="btn btn-sm btn-outline-secondary" 
                         onClick={() => handleChgQty(item.code, -1)}
                         disabled={qty <= 0}
+                        aria-label="Kurang"
                       >−</button>
                       <span className="fw-bold" style={{ minWidth: '24px', textAlign: 'center' }}>{qty}</span>
                       <button 
                         type="button" 
                         className="btn btn-sm btn-outline-secondary" 
                         onClick={() => handleChgQty(item.code, 1)}
+                        aria-label="Tambah"
                       >+</button>
                     </div>
                   </div>

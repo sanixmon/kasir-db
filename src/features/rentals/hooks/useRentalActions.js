@@ -16,7 +16,8 @@ export function useRentalActions(options = {}) {
     todayStr = (ts) => getShiftDate(ts),
     onSessionStarted,
     onEditSaved,
-    onPaymentFinalized
+    onPaymentFinalized,
+    onAdditionalAdded
   } = options;
 
   const startRental = async (nama, items, payAwal) => {
@@ -165,8 +166,8 @@ export function useRentalActions(options = {}) {
         );
       }
       swalSuccess('Item Tambahan Berhasil Ditambahkan!');
-      if (typeof options.onAdditionalAdded === 'function') {
-        options.onAdditionalAdded(normalizedSess, enrichedNewItems, additionalPayAwal);
+      if (typeof onAdditionalAdded === 'function') {
+        onAdditionalAdded(normalizedSess, enrichedNewItems, additionalPayAwal);
       }
       return { success: true, session: normalizedSess };
     } catch (e) {
