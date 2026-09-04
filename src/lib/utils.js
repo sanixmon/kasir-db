@@ -43,7 +43,20 @@ export function normalizeItems(val) {
         return m ? { code: m[1].trim(), qty: Number(m[2] || 1) } : { code: it.trim(), qty: 1 };
       }
       if (typeof it === 'object') {
-        return { code: String(it.code || 'ITEM'), qty: Number(it.qty || 1) };
+        const res = {
+          code: String(it.code || 'ITEM'),
+          qty: Number(it.qty || 1)
+        };
+        if (it.startTime !== undefined && !isNaN(Number(it.startTime))) {
+          res.startTime = Number(it.startTime);
+        }
+        if (it.payAwal) {
+          res.payAwal = String(it.payAwal).toLowerCase();
+        }
+        if (it.priceBase !== undefined && !isNaN(Number(it.priceBase))) {
+          res.priceBase = Number(it.priceBase);
+        }
+        return res;
       }
       return null;
     }).filter(Boolean);
