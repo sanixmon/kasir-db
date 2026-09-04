@@ -93,7 +93,7 @@ function QRCodeModal({ session, onClose }) {
                 </div>
               </div>
               <div style={{ background: 'rgba(63,185,80,.1)', border: '1px solid rgba(63,185,80,.3)', borderRadius: '8px', padding: '8px 12px', fontSize: '.72rem', color: 'var(--green)', fontWeight: 700, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <i className="bi bi-cloud-check-fill"></i>Data tracking tersimpan di Cloud Database (Google Sheets API) — bisa diakses dari HP manapun
+                <i className="bi bi-shield-check"></i>Data tracking tersimpan di Server Database — dapat dipantau real-time dari perangkat apapun
               </div>
               <div className="qr-url-box p-2 border rounded text-truncate text-center mb-3" style={{ background: 'var(--bg)', cursor: 'pointer', fontSize: '.85rem' }} onClick={copyTrackUrl} title="Klik untuk salin">
                 <i className="bi bi-link-45deg me-1"></i>{trackUrl}

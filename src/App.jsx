@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import LoginPage from './features/auth/components/LoginPage';
-import { changeAdminPassword } from './api';
 import { getShiftDate } from './lib/shift';
 import { fmtRp, fmtDur, generateShortId, safeSetItem, normalizeItems, normalizeSession, normalizeTxn } from './lib/utils';
 import { ITEMS } from './lib/items';
@@ -198,10 +197,6 @@ function App() {
     }
   };
 
-  const handleUpdateAdminPassword = async (oldPass, newPass) => {
-    return changeAdminPassword(oldPass, newPass);
-  };
-
   const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
     localStorage.setItem('kw_theme', newTheme);
@@ -229,10 +224,7 @@ function App() {
 
   if (currentUserRole === 'cashier' && !currentShiftUser) {
     return (
-      <div>
-        <div className="p-2"><button className="btn btn-sm btn-outline-secondary" onClick={resetRole}>&larr; Ganti Role</button></div>
-        <LoginPage onLogin={handleLogin} />
-      </div>
+      <LoginPage onLogin={handleLogin} onBack={resetRole} />
     );
   }
 
@@ -355,11 +347,9 @@ function App() {
             currentShiftUser={currentShiftUser}
             theme={theme}
             onThemeChange={handleThemeChange}
-            onUpdateAdminPassword={handleUpdateAdminPassword}
             sbConnected={apiConnected}
             lastSyncTime={lastSyncTime}
             onSyncPull={loadData}
-            onSyncPush={loadData}
             printMulai={printMulai}
             onChangePrintMulai={handlePrintMulaiToggle}
             printSelesai={printSelesai}

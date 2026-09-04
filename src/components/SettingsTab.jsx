@@ -17,11 +17,9 @@ function SettingsTab({
   currentShiftUser,
   theme, 
   onThemeChange, 
-  onUpdateAdminPassword, 
   sbConnected, 
   lastSyncTime, 
   onSyncPull, 
-  onSyncPush,
   printMulai,
   onChangePrintMulai,
   printSelesai,
@@ -97,21 +95,17 @@ function SettingsTab({
         {/* ─── SECTION 2: USER & CASHIER MANAGEMENT ─────────────────────────── */}
         <SettingsUsers users={users} onSyncPull={onSyncPull} />
 
-        {/* ─── SECTION 3: SYSTEM SYNC & CLOUD CONTROLS ───────────────────────── */}
+        {/* ─── SECTION 3: SYSTEM SYNC & SERVER CONTROLS ──────────────────────── */}
         <div className="col-12 col-xl-6">
           <div className="panel h-100">
             <div className="panel-head">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ marginRight: '8px' }}>
-                <path d="M3.89 15.672L6.255.461A.542.542 0 017.27.288l2.543 4.771 2.39-4.52a.542.542 0 01.96 0L22.073 22H3.89z" fill="#FFA000"/>
-                <path d="M17.656 18.281L13.84 3.326a.545.545 0 00-1.05-.021L9.274 10.52 17.656 18.281z" fill="#F57F17"/>
-                <path d="M3.89 15.672l.924-8.684 4.46 12.992zM22.073 22l-4.417-3.719L13.83 22z" fill="#FFCA28"/>
-              </svg>
-              <span>Koneksi Google Sheets Cloud API</span>
+              <i className="bi bi-hdd-network-fill me-2 clr-cyan"></i>
+              <span>Status Koneksi Server &amp; Database</span>
               <span className="ms-auto">
                 {sbConnected ? (
                   <span className="fb-badge fb-badge-connected" style={{ color: 'var(--green)', fontSize: '0.85rem' }}>
                     <span className="fb-status-dot fb-dot-connected" style={{ display: 'inline-block', width: '8px', height: '8px', background: 'var(--green)', borderRadius: '50%', marginRight: '6px' }}></span>
-                    Terhubung
+                    Online
                   </span>
                 ) : (
                   <span className="fb-badge fb-badge-connecting" style={{ color: 'var(--orange)', fontSize: '0.85rem' }}>
@@ -123,11 +117,10 @@ function SettingsTab({
             </div>
             <div className="panel-body d-flex flex-column justify-content-between">
               <div className="fb-auto-card p-3 border rounded mb-3" style={{ background: 'var(--bg3)' }}>
-                <div className="fa-title font-weight-bold mb-2"><i className="bi bi-lightning-charge-fill me-1 clr-yellow"></i>Real-time Multi-Device Synchronization</div>
-                <div className="fa-desc small text-secondary mb-3">Data sesi aktif, transaksi, dan QR tracking tersimpan di cloud. Semua perubahan antar device akan tersinkronisasi otomatis setiap 5 detik.</div>
+                <div className="fa-title font-weight-bold mb-2"><i className="bi bi-arrow-repeat me-1 clr-cyan"></i>Sinkronisasi Data Real-Time</div>
+                <div className="fa-desc small text-secondary mb-3">Data sesi aktif, transaksi, dan QR tracking tersimpan di database server SQLite. Perubahan data antar perangkat disinkronkan otomatis secara berkala.</div>
                 <div className="d-flex gap-2 flex-wrap">
-                  <button className="btn btn-sm btn-outline-info" onClick={onSyncPull}><i className="bi bi-arrow-down-circle-fill me-1"></i>Tarik Data Cloud</button>
-                  <button className="btn btn-sm btn-info text-white" onClick={onSyncPush} style={{ background: 'linear-gradient(135deg,#58a6ff,#1f6feb)', borderColor: '#388bfd' }}><i className="bi bi-arrow-up-circle-fill me-1"></i>Kirim Data Cloud</button>
+                  <button className="btn btn-sm btn-outline-info" onClick={onSyncPull}><i className="bi bi-arrow-clockwise me-1"></i>Muat Ulang / Sinkron Data Sekarang</button>
                 </div>
                 <div className="mt-3 small text-secondary">Terakhir sinkron: <span>{lastSyncTime || '—'}</span></div>
               </div>
