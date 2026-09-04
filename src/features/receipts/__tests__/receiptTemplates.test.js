@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { generateStartReceiptHTML, generateFinishReceiptHTML, getTrackUrl } from '../receiptTemplates';
+import { generateStartReceiptHTML, generateFinishReceiptHTML, generateAdditionalReceiptHTML, getTrackUrl } from '../receiptTemplates';
 
 describe('Receipt Templates Unit Tests', () => {
   it('getTrackUrl formats URL containing session or txn ID', () => {
@@ -106,6 +106,26 @@ describe('Receipt Templates Unit Tests', () => {
       expect(html).not.toContain('Overtime:');
       expect(html).not.toContain('OT: -');
       expect(html).toContain('QRIS:');
+    });
+  });
+
+  describe('generateAdditionalReceiptHTML', () => {
+    it('generates HTML containing *** ADDITIONAL ORDER *** at the very top before brand name', () => {
+      const session = {
+        id: 's-123',
+        queueNo: 5,
+        nama: 'Budi'
+      };
+      const addedItems = [{ code: 'SCOOTER', qty: 1 }];
+      const html = generateAdditionalReceiptHTML(session, addedItems, 'cash', 'Kasir A');
+
+      expect(html).toContain('*** ADDITIONAL ORDER ***');
+      expect(html.indexOf('*** ADDITIONAL ORDER ***')).toBeLessThan(html.indexOf('EVREN HOUSE'));
+      expect(html).toContain('Queue Number: #5');
+      expect(html).toContain('Budi');
+      expect(html).toContain('Kasir A');
+      expect(html).toContain('SCOOTER');
+      expect(html).toContain('CASH');
     });
   });
 });
