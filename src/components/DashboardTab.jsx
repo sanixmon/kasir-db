@@ -3,7 +3,7 @@ import { ITEMS } from '../lib/items';
 import { fmtRp, fmtDur } from '../lib/utils';
 import { swalWarning } from '../lib/swal';
 
-function LiveSessionTimer({ session, onSelesaiSewa, onShowQR, onPrintSesi, onEditSesi }) {
+function LiveSessionTimer({ session, onSelesaiSewa, onShowQR, onPrintSesi, onEditSesi, onAddItem }) {
   const safeStart = (session.startTime && Number(session.startTime) > 1577836800000) ? Number(session.startTime) : Date.now();
   const [elapsedSec, setElapsedSec] = useState(() => Math.max(0, Math.floor((Date.now() - safeStart) / 1000)));
 
@@ -79,13 +79,22 @@ function LiveSessionTimer({ session, onSelesaiSewa, onShowQR, onPrintSesi, onEdi
         </button>
         <button className="btn-qr-aktif ms-1" onClick={() => onShowQR(session)} title="Tampilkan QR"><i className="bi bi-qr-code"></i></button>
         <button className="btn-qr-aktif" style={{ background: 'var(--bg-sec)', color: 'var(--cyan)', border: '1px solid var(--cyan)' }} onClick={() => onPrintSesi(session)} title="Print Struk"><i className="bi bi-printer-fill"></i></button>
+        <button
+          className="btn-qr-aktif"
+          style={{ background: 'var(--bg-sec)', color: 'var(--green)', border: '1px solid var(--green)' }}
+          onClick={() => onAddItem && onAddItem(session)}
+          title="Tambah Item"
+          aria-label="Tambah Item"
+        >
+          <i className="bi bi-plus-circle-fill"></i>
+        </button>
         <button className="btn-edit-aktif me-1" onClick={() => onEditSesi(session)} title="Edit"><i className="bi bi-pencil-fill"></i></button>
       </div>
     </div>
   );
 }
 
-function DashboardTab({ activeSessions, onStartSewa, getImgUrl, onSelesaiSewa, onShowQR, onPrintSesi, onEditSesi }) {
+function DashboardTab({ activeSessions, onStartSewa, getImgUrl, onSelesaiSewa, onShowQR, onPrintSesi, onEditSesi, onAddItem }) {
   const [inputNama, setInputNama] = useState('');
   const [payAwal, setPayAwal] = useState('cash');
   const [selectedQty, setSelectedQty] = useState({});
@@ -245,6 +254,7 @@ function DashboardTab({ activeSessions, onStartSewa, getImgUrl, onSelesaiSewa, o
                       onShowQR={onShowQR} 
                       onPrintSesi={onPrintSesi} 
                       onEditSesi={onEditSesi} 
+                      onAddItem={onAddItem}
                     />
                   ))
                 )}

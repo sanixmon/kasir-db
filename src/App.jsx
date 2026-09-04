@@ -15,6 +15,7 @@ import PaymentModal from './components/PaymentModal';
 import PasswordVerificationModal from './features/auth/components/PasswordVerificationModal';
 import QRCodeModal from './components/QRCodeModal';
 import EditActiveSessionModal from './features/rentals/components/EditActiveSessionModal';
+import AddItemModal from './features/rentals/components/AddItemModal';
 import TrackingPage from './components/TrackingPage';
 import LiveClock from './components/LiveClock';
 import { useReceiptPrinter } from './features/receipts/useReceiptPrinter';
@@ -74,6 +75,7 @@ function App() {
   const [activePaymentData, setActivePaymentData] = useState(null);
   const [activeQRModalSession, setActiveQRModalSession] = useState(null);
   const [activeEditSession, setActiveEditSession] = useState(null);
+  const [activeAddItemSession, setActiveAddItemSession] = useState(null);
 
   // Settings states
   const [printMulai, setPrintMulai] = useState(false);
@@ -131,14 +133,15 @@ function App() {
 
 
 
-  const { printStart: handlePrintMulai, printFinish: handlePrintSelesai } = useReceiptPrinter({
+  const { printStart: handlePrintMulai, printFinish: handlePrintSelesai, printAdditionalOrder: handlePrintAdditional } = useReceiptPrinter({
     currentShiftUser
   });
 
   const {
     startRental: handleStartSewa,
     editRental: handleSaveEditedSessionAction,
-    claimRental: handleClaimRentalAction
+    claimRental: handleClaimRentalAction,
+    addItemsToRental: handleAddItemsAction
   } = useRentalActions({
     setActiveSessions,
     setTransactions,
@@ -310,6 +313,7 @@ function App() {
             onEditSesi={(session) => {
               requestEscalation({ type: 'editSession', session });
             }}
+            onAddItem={(sess) => setActiveAddItemSession(sess)}
           />
         )}
         {activeTab === 'riwayat' && (
@@ -414,6 +418,22 @@ function App() {
           session={activeEditSession}
           onClose={() => setActiveEditSession(null)}
           onSave={handleSaveEditedSession}
+        />
+      )}
+
+      {activeAddItemSession && (
+        <AddItemModal
+          session={activeAddItemSession}
+          onClose={() => setActiveAddItemSession(null)}
+          onSave={async (newItems, payAwal) => {
+            const res = await handleAddItemsAction(activeAddItemSession, newItems, payAwal);
+            if (res && res.success) {
+              if (printMulai && handlePrintAdditional) {
+                handlePrintAdditional(activeAddItemSession, newItems, payAwal);
+              }
+              setActiveAddItemSession(null);
+            }
+          }}
         />
       )}
 
