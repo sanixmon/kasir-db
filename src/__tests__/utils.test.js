@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { fmtRp, fmtDur, safeSetItem } from '../App';
+import { fmtRp, fmtDur, safeSetItem, normalizeItems } from '../App';
 
 // ─── fmtRp ───────────────────────────────────────────────────────────────────
 
@@ -90,5 +90,28 @@ describe('safeSetItem', () => {
     expect(remaining[0].no).toBe(100);
 
     vi.restoreAllMocks();
+  });
+});
+
+// ─── normalizeItems ──────────────────────────────────────────────────────────
+
+describe('normalizeItems with per-item metadata', () => {
+  it('preserves startTime, payAwal, and priceBase if present on item object', () => {
+    const raw = [
+      { code: 'STROLLER', qty: 1, startTime: 1725450000000, payAwal: 'cash', priceBase: 40000 },
+      { code: 'SCOOTER', qty: 2, startTime: 1725450300000, payAwal: 'qris', priceBase: 30000 }
+    ];
+    const normalized = normalizeItems(raw);
+    expect(normalized).toEqual([
+      { code: 'STROLLER', qty: 1, startTime: 1725450000000, payAwal: 'cash', priceBase: 40000 },
+      { code: 'SCOOTER', qty: 2, startTime: 1725450300000, payAwal: 'qris', priceBase: 30000 }
+    ]);
+  });
+
+  it('handles legacy object items without startTime cleanly', () => {
+    const raw = [{ code: 'STROLLER', qty: 1 }];
+    const normalized = normalizeItems(raw);
+    expect(normalized).toEqual([{ code: 'STROLLER', qty: 1 }]);
+    expect(normalized[0].startTime).toBeUndefined();
   });
 });

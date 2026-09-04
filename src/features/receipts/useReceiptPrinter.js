@@ -1,4 +1,4 @@
-import { generateStartReceiptHTML, generateFinishReceiptHTML, getTrackUrl } from './receiptTemplates';
+import { generateStartReceiptHTML, generateFinishReceiptHTML, generateAdditionalReceiptHTML, getTrackUrl } from './receiptTemplates';
 
 /**
  * Custom hook for DOM-based thermal receipt printing and QR code attachment.
@@ -51,9 +51,17 @@ export function useReceiptPrinter(options = {}) {
     triggerPrintReceipt(html, trackUrl);
   };
 
+  const printAdditionalOrder = (session, addedItems, payMethod = 'cash', shiftUser = currentShiftUser) => {
+    if (!session || !addedItems || addedItems.length === 0) return;
+    const html = generateAdditionalReceiptHTML(session, addedItems, payMethod, shiftUser);
+    const trackUrl = getTrackUrl(session.id);
+    triggerPrintReceipt(html, trackUrl);
+  };
+
   return {
     triggerPrintReceipt,
     printStart,
-    printFinish
+    printFinish,
+    printAdditionalOrder
   };
 }

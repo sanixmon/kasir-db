@@ -105,3 +105,58 @@ export function generateFinishReceiptHTML(txn) {
         <div class="rc" style="font-size:10px">Terima kasih telah berkunjung!</div>
       </div>`;
 }
+
+/**
+ * Generate Struk Tambahan Sewa HTML template.
+ * Pure function: No DOM manipulation, no React hooks.
+ */
+export function generateAdditionalReceiptHTML(
+  session,
+  addedItems = [],
+  payMethod = 'cash',
+  currentShiftUser = '-',
+  itemsCatalog = ITEMS
+) {
+  if (!session) return '';
+
+  const now = Date.now();
+  const itemsText = (Array.isArray(addedItems) ? addedItems : [])
+    .map((i) => {
+      const d = itemsCatalog.find((item) => item.code === i.code);
+      if (!d) return `${i.code} x${i.qty || 1}`;
+      return `${i.code} - ${d.name} x${i.qty || 1}  ${fmtRp(d.priceHour * (i.qty || 1))}`;
+    })
+    .join('\n');
+
+  const total = (Array.isArray(addedItems) ? addedItems : []).reduce((s, i) => {
+    const d = itemsCatalog.find((item) => item.code === i.code);
+    return s + (d ? d.priceHour * (i.qty || 1) : 0);
+  }, 0);
+
+  const payStr = String(payMethod || 'cash').toUpperCase();
+
+  return `
+      <div class="receipt-mono">
+        <div class="rc rb" style="font-size:14px;letter-spacing:1px;padding:3px 0;border-bottom:1px dashed #000;margin-bottom:6px">*** ADDITIONAL ORDER ***</div>
+        <div class="rc rb" style="font-size:13px">EVREN HOUSE</div>
+        <div class="rc">Scooter &amp; Stroller</div>
+        <div class="rc">Struk Tambahan Sewa</div>
+        <hr>
+        <div>Queue Number: #${session.queueNo || 0}</div>
+        <div>Tgl: ${dateStr(now)} | ${timeStr(now)}</div>
+        <div>Nama: ${session.nama || ''}</div>
+        <div>Shift: ${currentShiftUser || '-'}</div>
+        <hr>
+        <pre style="font-size:11px;margin:0">${itemsText}</pre>
+        <hr>
+        <div class="rr rb"><span>Total Tambahan:</span><span>${fmtRp(total)} (${payStr})</span></div>
+        <hr>
+        <div class="rc" style="margin:5px 0">
+          <div id="printQrCode" style="display:inline-block;background:#fff;padding:5px"></div>
+          <div style="font-size:9px;margin-top:4px">Scan QR untuk Cek Sisa Waktu</div>
+        </div>
+        <hr>
+        <div class="rc" style="font-size:10px">Terima kasih!</div>
+      </div>`;
+}
+

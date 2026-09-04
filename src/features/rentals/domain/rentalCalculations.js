@@ -116,7 +116,10 @@ export function calculatePartialReturn(sessionItems = [], itemsCalc = []) {
     .map((orig) => {
       const calc = itemsCalc.find((it) => it.code === orig.code);
       const returned = calc ? calc.returnQty : 0;
-      return { code: orig.code, qty: orig.qty - returned };
+      return {
+        ...orig,
+        qty: orig.qty - returned
+      };
     })
     .filter((it) => it.qty > 0);
 

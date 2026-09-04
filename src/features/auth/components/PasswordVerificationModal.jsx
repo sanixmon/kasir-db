@@ -35,7 +35,7 @@ function PasswordVerificationModal({ onVerify, onVerifySuccess, onClose }) {
         <div className="modal-content cmodal">
           <div className="modal-header cmodal-head">
             <h5 className="modal-title"><i className="bi bi-shield-lock-fill me-2"></i>Verifikasi Admin</h5>
-            <button type="button" className="btn-close" onClick={onClose} disabled={isSubmitting}></button>
+            <button type="button" className="btn-close" onClick={onClose} disabled={isSubmitting} aria-label="Tutup"></button>
           </div>
           <div className="modal-body">
             <input 
@@ -47,6 +47,7 @@ function PasswordVerificationModal({ onVerify, onVerifySuccess, onClose }) {
               onChange={(e) => setPassword(e.target.value)}
               onKeyDown={handleKeyDown}
               disabled={isSubmitting}
+              aria-label="Password Admin"
               autoFocus
             />
             <button className="btn-start w-100" onClick={handleVerify} disabled={isSubmitting}>
@@ -59,7 +60,11 @@ function PasswordVerificationModal({ onVerify, onVerifySuccess, onClose }) {
                 'Masuk'
               )}
             </button>
-            {error && <p className="text-danger small mt-2 mb-0">❌ Password salah!</p>}
+            {error && (
+              <p className="text-danger small mt-2 mb-0 d-flex align-items-center">
+                <i className="bi bi-x-circle-fill me-1"></i>Password salah!
+              </p>
+            )}
           </div>
         </div>
       </div>

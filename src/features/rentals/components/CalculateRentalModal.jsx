@@ -11,43 +11,61 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
   const isAdmin = currentUserRole === 'admin';
   // Guard: if startTime is 0 / epoch 1970 (backend NaN bug), default to now
   // Only clamp if before year 2020 — old-but-valid sessions are still valid
-  const safeStart = (session.startTime && session.startTime > 1577836800000)
-    ? session.startTime
+  const safeStart = (session?.startTime && Number(session.startTime) > 1577836800000)
+    ? Number(session.startTime)
     : Date.now();
   const [elapsed, setElapsed] = useState(() => Math.floor((Date.now() - safeStart) / 1000));
   const [elapsedMin, setElapsedMin] = useState(() => Math.floor((Date.now() - safeStart) / 1000) / 60);
   const [itemsCalc, setItemsCalc] = useState([]);
 
   useEffect(() => {
-    const safeStart = (session.startTime && session.startTime > 1577836800000)
-      ? session.startTime
-      : Date.now();
     const el = Math.floor((Date.now() - safeStart) / 1000);
     const elMin = el / 60;
     setElapsed(el);
     setElapsedMin(elMin);
 
+    const now = Date.now();
     const initial = (Array.isArray(session?.items) ? session.items : []).map(it => {
       if (!it) return null;
       const def = ITEMS.find(item => item.code === it.code) || { priceHour: 0, priceOT30: 0, priceOT60: 0 };
-      return calculateItemDetail(it, def, elMin);
+      const itemStart = (it.startTime && Number(it.startTime) > 1577836800000)
+        ? Number(it.startTime)
+        : safeStart;
+      const itemElSec = Math.max(0, Math.floor((now - itemStart) / 1000));
+      const itemElMin = itemElSec / 60;
+      return {
+        ...calculateItemDetail(it, def, itemElMin),
+        itemStart,
+        itemElapsedMin: itemElMin
+      };
     }).filter(Boolean);
     setItemsCalc(initial);
-  }, [session]);
+  }, [session, safeStart]);
 
   const handleReturnQtyChange = (idx, delta) => {
+    const now = Date.now();
     setItemsCalc(prev => prev.map((it, i) => {
       if (i !== idx) return it;
       const newReturnQty = Math.max(0, Math.min(it.qty || 1, (it.returnQty || 1) + delta));
-      return calculateItemDetail(it, it.def, elapsedMin, newReturnQty);
+      const itemStart = (it.itemStart && Number(it.itemStart) > 1577836800000)
+        ? Number(it.itemStart)
+        : safeStart;
+      const itemElSec = Math.max(0, Math.floor((now - itemStart) / 1000));
+      const itemElMin = itemElSec / 60;
+      return {
+        ...calculateItemDetail(it, it.def, itemElMin, newReturnQty),
+        itemStart,
+        itemElapsedMin: itemElMin
+      };
     }));
   };
 
   const { baseSum, otSum, grandOT, totalReturnQty } = calculateRentalTotals(itemsCalc);
 
-  const isOT = itemsCalc.some(it => it.returnQty > 0 && Math.floor(elapsedMin - it.limitMin) >= 11);
-  const maxOver = Math.max(...itemsCalc.map(it => {
-    const o = elapsedMin - it.limitMin;
+  const isOT = itemsCalc.some(it => it.returnQty > 0 && Math.floor((it.itemElapsedMin ?? elapsedMin) - it.limitMin) >= 11);
+  const maxOver = Math.max(0, ...itemsCalc.map(it => {
+    const curElMin = it.itemElapsedMin ?? elapsedMin;
+    const o = curElMin - it.limitMin;
     return it.returnQty > 0 && Math.floor(o) >= 11 ? o : 0;
   }));
 
@@ -81,11 +99,11 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
         <div className="modal-content cmodal">
           <div className="modal-header cmodal-head">
             <h5 className="modal-title"><i className="bi bi-calculator-fill me-2 clr-yellow"></i>Hitung Sewa</h5>
-            <button type="button" className="btn-close" onClick={onClose}></button>
+            <button type="button" className="btn-close" onClick={onClose} aria-label="Tutup"></button>
           </div>
           <div className="modal-body p-0">
             <div className="hitung-wrap" style={{ padding: '20px' }}>
-              <div className="info-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '14px' }}>
+              <div className="info-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px', marginBottom: '14px' }}>
                 <div className="info-box"><div className="lbl">Nama</div><div className="val name">{session.nama}</div></div>
                 <div className="info-box"><div className="lbl">Mulai Sewa</div><div className="val">{new Date(session.startTime).toTimeString().slice(0,5)}</div></div>
                 <div className="info-box"><div className="lbl">Sekarang</div><div className="val">{new Date().toTimeString().slice(0,5)}</div></div>
@@ -115,7 +133,8 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
               
               <div className="mb-3">
                 {itemsCalc.map((it, idx) => {
-                  const overMin = elapsedMin - it.limitMin;
+                  const curElMin = it.itemElapsedMin ?? elapsedMin;
+                  const overMin = curElMin - it.limitMin;
                   const isReturned = it.returnQty > 0;
                   return (
                     <div className="ot-item-row" key={it.code + idx} style={{ opacity: isReturned ? 1 : 0.45 }}>
@@ -129,18 +148,26 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
                             <span style={{ fontSize: '.75rem', color: 'var(--text-sec)' }}>Kembali:</span>
                             <div className="btn-group btn-group-sm">
                               <button
-                                className="btn btn-outline-secondary py-0 px-2"
+                                type="button"
+                                className="btn btn-outline-secondary py-1 px-2 d-inline-flex align-items-center justify-content-center"
+                                style={{ minWidth: '34px', minHeight: '34px' }}
                                 onClick={() => handleReturnQtyChange(idx, -1)}
                                 disabled={it.returnQty <= 0}
-                              >-</button>
-                              <span className="btn btn-outline-secondary py-0 px-2 disabled text-body" style={{ minWidth: '28px' }}>
+                                aria-label="-"
+                                title={`Kurangi retur ${it.code}`}
+                              ><i className="bi bi-dash"></i></button>
+                              <span className="btn btn-outline-secondary py-1 px-2 disabled text-body d-inline-flex align-items-center justify-content-center font-monospace fw-bold" style={{ minWidth: '34px' }}>
                                 {it.returnQty}
                               </span>
                               <button
-                                className="btn btn-outline-secondary py-0 px-2"
+                                type="button"
+                                className="btn btn-outline-secondary py-1 px-2 d-inline-flex align-items-center justify-content-center"
+                                style={{ minWidth: '34px', minHeight: '34px' }}
                                 onClick={() => handleReturnQtyChange(idx, 1)}
                                 disabled={it.returnQty >= it.qty}
-                              >+</button>
+                                aria-label="+"
+                                title={`Tambah retur ${it.code}`}
+                              ><i className="bi bi-plus"></i></button>
                             </div>
                           </div>
                         )}

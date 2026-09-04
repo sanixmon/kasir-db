@@ -53,7 +53,7 @@ function QRCodeModal({ session, onClose }) {
         <div className="modal-content cmodal">
           <div className="modal-header cmodal-head">
             <h5 className="modal-title"><i className="bi bi-qr-code-scan me-2 clr-cyan"></i>QR Tracking Sewa</h5>
-            <button type="button" className="btn-close" onClick={onClose}></button>
+            <button type="button" className="btn-close" onClick={onClose} aria-label="Tutup"></button>
           </div>
           <div className="modal-body p-0">
             <div className="qr-modal-wrap" style={{ padding: '20px' }}>
@@ -87,15 +87,33 @@ function QRCodeModal({ session, onClose }) {
                   <div style={{ color: '#666', fontSize: '.75rem' }}>Generating QR...</div>
                 </div>
                 <div className="qr-scan-hint text-center small text-secondary mt-1">
-                  📱 Penyewa scan QR → halaman timer real-time terbuka<br />
-                  ⏱ Timer update otomatis setiap detik<br />
-                  ✅ Saat selesai → halaman berubah jadi <b style={{ color: 'var(--yellow)' }}>struk digital</b>
+                  <div className="d-flex align-items-center justify-content-center gap-1 mb-1">
+                    <i className="bi bi-phone clr-cyan"></i>
+                    <span>Penyewa scan QR → halaman timer real-time terbuka</span>
+                  </div>
+                  <div className="d-flex align-items-center justify-content-center gap-1 mb-1">
+                    <i className="bi bi-stopwatch clr-yellow"></i>
+                    <span>Timer update otomatis setiap detik</span>
+                  </div>
+                  <div className="d-flex align-items-center justify-content-center gap-1">
+                    <i className="bi bi-check-circle-fill clr-green"></i>
+                    <span>Saat selesai → halaman berubah jadi <b style={{ color: 'var(--yellow)' }}>struk digital</b></span>
+                  </div>
                 </div>
               </div>
               <div style={{ background: 'rgba(63,185,80,.1)', border: '1px solid rgba(63,185,80,.3)', borderRadius: '8px', padding: '8px 12px', fontSize: '.72rem', color: 'var(--green)', fontWeight: 700, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <i className="bi bi-cloud-check-fill"></i>Data tracking tersimpan di Cloud Database (Google Sheets API) — bisa diakses dari HP manapun
+                <i className="bi bi-shield-check"></i>Data tracking tersimpan di Server Database — dapat dipantau real-time dari perangkat apapun
               </div>
-              <div className="qr-url-box p-2 border rounded text-truncate text-center mb-3" style={{ background: 'var(--bg)', cursor: 'pointer', fontSize: '.85rem' }} onClick={copyTrackUrl} title="Klik untuk salin">
+              <div 
+                className="qr-url-box p-2 border rounded text-truncate text-center mb-3" 
+                style={{ background: 'var(--bg)', cursor: 'pointer', fontSize: '.85rem' }} 
+                onClick={copyTrackUrl} 
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && copyTrackUrl()}
+                role="button"
+                tabIndex={0}
+                title="Klik untuk salin"
+                aria-label="Salin link tracking ke clipboard"
+              >
                 <i className="bi bi-link-45deg me-1"></i>{trackUrl}
               </div>
               <div className="d-flex gap-2 mb-2">

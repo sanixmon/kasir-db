@@ -49,6 +49,7 @@ export default function RoleSelection({ onSelectCashier, onSelectAdmin }) {
                 type="password" 
                 className="cfield" 
                 placeholder="Masukkan Password Admin..."
+                aria-label="Password Admin"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 onKeyDown={e => e.key === 'Enter' && onSelectAdmin(password)}

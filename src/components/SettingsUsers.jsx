@@ -105,7 +105,7 @@ function SettingsUsers({ users, onSyncPull }) {
                   className="btn btn-sm btn-success w-100 font-weight-bold" 
                   disabled={isSavingUser}
                 >
-                  {isSavingUser ? 'Menyimpan...' : 'Simpan User ke Cloud Backend'}
+                  {isSavingUser ? 'Menyimpan...' : 'Simpan Pengguna'}
                 </button>
               </div>
             </div>
