@@ -145,3 +145,36 @@ describe('Rental Calculations Domain - Item Details and Totals', () => {
     expect(otDurStr).toBe('SD:90m');
   });
 });
+
+describe('calculatePartialReturn metadata preservation', () => {
+  it('preserves startTime, payAwal, and priceBase on remainingItems', () => {
+    const sessionItems = [
+      { code: 'STROLLER', qty: 1, startTime: 1000000, payAwal: 'cash', priceBase: 40000 },
+      { code: 'SCOOTER', qty: 2, startTime: 1000300, payAwal: 'qris', priceBase: 30000 }
+    ];
+    const itemsCalc = [
+      { code: 'STROLLER', returnQty: 1 },
+      { code: 'SCOOTER', returnQty: 1 }
+    ];
+
+    const result = calculatePartialReturn(sessionItems, itemsCalc);
+    expect(result.itemStr).toBe('STROLLER×1, SCOOTER×1');
+    expect(result.remainingItems).toEqual([
+      { code: 'SCOOTER', qty: 1, startTime: 1000300, payAwal: 'qris', priceBase: 30000 }
+    ]);
+  });
+});
+
+describe('calculateItemDetail with per-item start timing', () => {
+  it('calculates overtime accurately for independent item elapsed minutes', () => {
+    const it = { code: 'SCOOTER', qty: 1, startTime: 1000300 };
+    const def = { priceHour: 30000, priceOT30: 15000, priceOT60: 30000, isPackage: false, packageHours: 1 };
+    
+    // 75 minutes elapsed for scooter (15m OT -> falls in 11..40 half hour rate)
+    const calc = calculateItemDetail(it, def, 75);
+    expect(calc.otHalfCount).toBe(1);
+    expect(calc.otFullCount).toBe(0);
+    expect(calc.otCost).toBe(15000);
+    expect(calc.baseCost).toBe(30000);
+  });
+});
