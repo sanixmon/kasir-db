@@ -50,8 +50,11 @@ function LiveSessionTimer({ session, onSelesaiSewa, onShowQR, onPrintSesi, onEdi
               marginLeft: 6, fontSize: '.6rem', fontWeight: 800,
               background: 'rgba(249,115,22,.2)', color: 'var(--orange)',
               border: '1px solid rgba(249,115,22,.4)',
-              borderRadius: 4, padding: '1px 5px'
-            }}>⚠️ ZOMBIE</span>
+              borderRadius: 4, padding: '1px 5px',
+              display: 'inline-flex', alignItems: 'center'
+            }}>
+              <i className="bi bi-exclamation-triangle-fill me-1"></i>ZOMBIE
+            </span>
           )}
         </div>
         <span className={`aktif-pay-badge ${payAwalStr}`}>
@@ -74,11 +77,11 @@ function LiveSessionTimer({ session, onSelesaiSewa, onShowQR, onPrintSesi, onEdi
         </span>
       </div>
       <div className="aktif-footer d-flex gap-2 align-items-center mt-auto">
-        <button className="btn-selesai flex-fill" style={{ background: btnColor }} onClick={() => onSelesaiSewa(session)}>
+        <button className="btn-selesai flex-fill" style={{ background: btnColor }} onClick={() => onSelesaiSewa(session)} aria-label="Selesaikan Sewa">
           <i className="bi bi-stop-circle-fill me-1"></i>Selesai
         </button>
-        <button className="btn-qr-aktif ms-1" onClick={() => onShowQR(session)} title="Tampilkan QR"><i className="bi bi-qr-code"></i></button>
-        <button className="btn-qr-aktif" style={{ background: 'var(--bg-sec)', color: 'var(--cyan)', border: '1px solid var(--cyan)' }} onClick={() => onPrintSesi(session)} title="Print Struk"><i className="bi bi-printer-fill"></i></button>
+        <button className="btn-qr-aktif ms-1" onClick={() => onShowQR(session)} title="Tampilkan QR" aria-label="Tampilkan QR Code"><i className="bi bi-qr-code"></i></button>
+        <button className="btn-qr-aktif" style={{ background: 'var(--bg-sec)', color: 'var(--cyan)', border: '1px solid var(--cyan)' }} onClick={() => onPrintSesi(session)} title="Print Struk" aria-label="Cetak Struk Sesi"><i className="bi bi-printer-fill"></i></button>
         <button
           className="btn-qr-aktif"
           style={{ background: 'var(--bg-sec)', color: 'var(--green)', border: '1px solid var(--green)' }}
@@ -88,7 +91,7 @@ function LiveSessionTimer({ session, onSelesaiSewa, onShowQR, onPrintSesi, onEdi
         >
           <i className="bi bi-plus-circle-fill"></i>
         </button>
-        <button className="btn-edit-aktif me-1" onClick={() => onEditSesi(session)} title="Edit"><i className="bi bi-pencil-fill"></i></button>
+        <button className="btn-edit-aktif me-1" onClick={() => onEditSesi(session)} title="Edit" aria-label="Edit Sesi"><i className="bi bi-pencil-fill"></i></button>
       </div>
     </div>
   );
@@ -200,9 +203,9 @@ function DashboardTab({ activeSessions, onStartSewa, getImgUrl, onSelesaiSewa, o
                         <div className="item-name">{item.name}</div>
                         <div className="item-price">{priceLabel}</div>
                         <div className="qty-control" onClick={(e) => e.stopPropagation()}>
-                          <button type="button" className="qty-btn minus" onClick={() => changeQty(item.code, -1)}>━</button>
+                          <button type="button" className="qty-btn minus" onClick={() => changeQty(item.code, -1)} aria-label={`Kurangi ${item.name}`}><i className="bi bi-dash"></i></button>
                           <span className="qty-val">{qty}</span>
-                          <button type="button" className="qty-btn plus" onClick={() => changeQty(item.code, 1)}>✚</button>
+                          <button type="button" className="qty-btn plus" onClick={() => changeQty(item.code, 1)} aria-label={`Tambah ${item.name}`}><i className="bi bi-plus"></i></button>
                         </div>
                       </div>
                     </div>

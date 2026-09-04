@@ -27,7 +27,9 @@ class ErrorBoundary extends React.Component {
           minHeight: '100vh', padding: '20px', backgroundColor: '#0d1117', color: '#c9d1d9', textAlign: 'center',
           fontFamily: 'system-ui, -apple-system, sans-serif'
         }}>
-          <div style={{ fontSize: '3rem', marginBottom: '12px' }}>⚠️</div>
+          <div style={{ marginBottom: '12px' }}>
+            <i className="bi bi-exclamation-triangle-fill" style={{ fontSize: '3rem', color: '#f59e0b' }}></i>
+          </div>
           <h3 style={{ color: '#f85149', marginBottom: '12px', fontWeight: 700 }}>Terjadi Kendala Memuat Aplikasi</h3>
           <p style={{ maxWidth: '450px', marginBottom: '24px', color: '#8b949e', fontSize: '0.9rem', lineHeight: '1.5' }}>
             Aplikasi mengalami kesalahan runtime atau struktur cache lokal tidak kompatibel.

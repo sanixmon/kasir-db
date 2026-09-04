@@ -1,24 +1,24 @@
-# Graph Report - kasir-db  (2026-09-05)
+# Graph Report - kasir-db  (2026-09-04)
 
 ## Corpus Check
-- 191 files · ~126,944 words
+- 207 files · ~132,448 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1403 nodes · 2245 edges · 126 communities (81 shown, 45 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 102 edges (avg confidence: 0.89)
+- 1537 nodes · 2363 edges · 139 communities (91 shown, 48 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 102 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2103e2a0`
+- Built from commit: `b5406e90`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- App.jsx
+- api.js
 - gray
 - search
-- semantic
+- color
 - UI Styling Skill
 - Color Semantic Tokens (Primary, Muted, Destructive)
 - db.js
@@ -32,7 +32,7 @@
 - BM25
 - TailwindConfigGenerator
 - Slides Master Reference
-- color
+- Requirements & Implementation Details
 - generate-slide.py
 - DesignSystemGenerator
 - fetch-background.py
@@ -43,20 +43,20 @@
 - devDependencies
 - extract-colors.cjs
 - validate-asset.cjs
-- CIP Design Reference
-- destructive-foreground
+- Logo Design Reference
+- Requirements & Implementation Details
 - validate-tokens.cjs
 - ShadcnInstaller
 - .check_shadcn_config
 - .generate_config_string
 - inject-brand-context.cjs
 - embed-tokens.cjs
-- primitive
+- duration
 - patch
 - test_tailwind_config_gen.py
 - search
 - dependencies
-- foreground
+- radius
 - logo/generate.py
 - generate-tokens.cjs
 - ._base_config
@@ -64,22 +64,22 @@
 - _run
 - BM25
 - Kasir DB Rental POS System
-- muted
-- rentals/components/CalculateRentalModal.jsx
+- Task 3 Report: Additional Order Receipt Template & Printer Hook
+- rentalCalculations.js
 - design_system.py
 - appsscript.json
 - .oxlintrc.json
 - scripts
-- muted-foreground
-- primary
+- sm
+- lg
 - UX & Performance Improvements Implementation Plan
 - ErrorBoundary
 - Tasks
 - package.json
-- primary-foreground
+- Requirements & Implementation Details
 - Design Spec: Penambahan Barang Sewa Sesi Berjalan & Penggabungan/Pemisahan Bill Akhir
 - .test_add_components_no_components
-- primary-hover
+- Requirements & Implementation Details
 - @vitest/coverage-v8
 - fix-css.cjs
 - test_sync_brand_to_tokens.py
@@ -88,13 +88,13 @@
 - .temp_project
 - Google Apps Script Backend Setup Guide
 - Graphify Query & AST Update Workflow
-- ring
-- secondary
-- secondary-foreground
+- Task 2 Report: Rental Domain Calculations
+- react
+- Requirements & Implementation Details
 - Global Constraints
 - .test_init_dry_run
-- fast
-- Logo Design Reference
+- Task 6 Implementation Report: Per-Item Overtime Calculation in Checkout (`CalculateRentalModal.jsx`)
+- .test_add_components_already_installed
 - .test_add_fonts
 - .test_recommend_plugins
 - .test_recommend_plugins_nextjs
@@ -111,11 +111,12 @@
 - .test_base_config_structure
 - .test_default_content_paths_react
 - .test_default_content_paths_vue
-- jsdom
+- xl
+- @testing-library/jest-dom
 - @testing-library/user-event
 - @types/react-dom
 - @vitejs/plugin-react
-- Social Photos Design Guide
+- jsdom
 - Brand Visual Identity
 - Bluesky Icon
 - Discord Icon
@@ -126,15 +127,27 @@
 - Graphify Workflow
 - PNPM Workspace Build Configuration
 - Vite Logo
+- App.jsx
+- Task 1 Report: Data Normalization & Schema Extension (`src/lib/utils.js`)
+- SettingsTab.jsx
 - .test_check_shadcn_config_exists
+- transactions/components/HistoryTab.jsx
 - .test_get_installed_components_with_files
+- Requirements & Implementation Details
+- Requirements & Implementation Details
+- SDD ledger — plan: docs/superpowers/plans/2026-09-04-additional-rental-items-and-billing.md
 - .test_init_default_project_root
 - receiptTemplates.js
-- Design Skills Task Routing Matrix
-- Logo Color Psychology Reference
+- shift.js
+- Final Fix Wave Brief: Whole-Branch Review Findings
+- Task 7 Implementation Report: POS Dashboard Integration & UI Button (`DashboardTab.jsx` & `App.jsx`)
+- none
+- auth/components/RoleSelection.jsx
+- LiveClock.jsx
+- Task 4 Report: Rental Action Hook Extension (`src/features/rentals/hooks/useRentalActions.js`)
+- default
+- Task 5 Report: Add Item Modal Component (`AddItemModal.jsx`)
 - .test_get_installed_components_empty
-- .test_add_components_no_config
-- vitest
 
 ## God Nodes (most connected - your core abstractions)
 1. `TailwindConfigGenerator` - 58 edges
@@ -151,14 +164,14 @@
 ## Surprising Connections (you probably didn't know these)
 - `Evren House Web Entrypoint` --conceptually_related_to--> `Kasir DB Rental POS System`  [INFERRED]
   index.html → README.md
-- `Social Photo HTML/CSS Canvas Rendering` --conceptually_related_to--> `Three-Layer Token Architecture (Primitive -> Semantic -> Component)`  [INFERRED]
-  .agents/skills/design/references/social-photos-design.md → .agents/skills/design-system/SKILL.md
-- `Logo Prompt Structure and Negative Prompting` --semantically_similar_to--> `CIP Base Prompt Structure`  [INFERRED] [semantically similar]
-  .agents/skills/design/references/logo-prompt-engineering.md → .agents/skills/design/references/cip-prompt-engineering.md
 - `Accessibility and Reduced Motion State Contracts` --semantically_similar_to--> `WAI-ARIA Accessibility Contracts`  [INFERRED] [semantically similar]
   .agents/skills/design-system/references/states-and-variants.md → .agents/skills/design-system/references/component-specs.md
 - `TestShadcnInstaller` --uses--> `ShadcnInstaller`  [INFERRED]
   .agents/skills/ui-styling/scripts/tests/test_shadcn_add.py → .agents/skills/ui-styling/scripts/shadcn_add.py
+- `TestGeneratedConfigIsValidJs` --uses--> `TailwindConfigGenerator`  [INFERRED]
+  .agents/skills/ui-styling/scripts/tests/test_tailwind_config_gen.py → .agents/skills/ui-styling/scripts/tailwind_config_gen.py
+- `TestTailwindConfigGenerator` --uses--> `TailwindConfigGenerator`  [INFERRED]
+  .agents/skills/ui-styling/scripts/tests/test_tailwind_config_gen.py → .agents/skills/ui-styling/scripts/tailwind_config_gen.py
 
 ## Import Cycles
 - None detected.
@@ -177,11 +190,11 @@
 - **Shadcn & Tailwind UI Styling Framework** — agents_skills_ui_styling_skill, agents_skills_ui_styling_references_shadcn_components, agents_skills_ui_styling_references_shadcn_theming, agents_skills_ui_styling_references_tailwind_customization [INFERRED 0.85]
 - **Google Sheets POS Backend Integration Flow** — docs_google_apps_script_readme, docs_google_apps_script_readme_sheet_schema, docs_google_apps_script_readme_webapp_deployment [INFERRED 0.95]
 
-## Communities (126 total, 45 thin omitted)
+## Communities (139 total, 48 thin omitted)
 
-### Community 0 - "App.jsx"
-Cohesion: 0.05
-Nodes (75): react, addDeletionLog(), addSession(), apiCall(), authHeaders(), authToken, backupDatabase(), changeAdminPassword() (+67 more)
+### Community 0 - "api.js"
+Cohesion: 0.14
+Nodes (26): addDeletionLog(), addSession(), apiCall(), authHeaders(), authToken, backupDatabase(), changeAdminPassword(), claimSession() (+18 more)
 
 ### Community 1 - "gray"
 Cohesion: 0.05
@@ -191,17 +204,17 @@ Nodes (53): $type, $value, $type, $value, $type, $value, $type, $value (+45 more
 Cohesion: 0.07
 Nodes (42): BM25, detect_domain(), get_cip_brief(), _load_csv(), Load CSV and return list of dicts, Core search function using BM25, Auto-detect the most relevant domain from query, Main search function with auto-domain detection (+34 more)
 
-### Community 3 - "semantic"
-Cohesion: 0.25
-Nodes (8): $type, $value, $type, $value, semantic, spacing, component, section
+### Community 3 - "color"
+Cohesion: 0.04
+Nodes (48): $type, $value, background, destructive, destructive-foreground, foreground, muted, muted-foreground (+40 more)
 
 ### Community 4 - "UI Styling Skill"
 Cohesion: 0.05
 Nodes (48): Slide Copywriting Formulas, Attention-Interest-Desire-Action (AIDA) Formula, Before-After-Bridge (BAB) Formula, Slide Headline Rules, Problem-Agitate-Solve (PAS) Formula, Slides Creation Guide, HTML Slide Template Structure, Slide CSS Variable Tokens (+40 more)
 
 ### Community 5 - "Color Semantic Tokens (Primary, Muted, Destructive)"
-Cohesion: 0.10
-Nodes (45): Three-Layer Token Architecture (Primitive -> Semantic -> Component), Component Specifications Reference, Badge Component Specification, Button Component Specification, Card Component Specification, Dialog Modal Specification, Dropdown Menu Specification, Input Component Specification (+37 more)
+Cohesion: 0.06
+Nodes (67): Three-Layer Token Architecture (Primitive -> Semantic -> Component), Banner Sizes and Styles Reference, Banner 22 Art Direction Styles, Banner Production QA Checklist, Banner Platform Dimensions and Aspect Ratios, Banner Layout and Safe Zone Rules, Design Routing Guide, Design Skills Task Routing Matrix (+59 more)
 
 ### Community 6 - "db.js"
 Cohesion: 0.09
@@ -247,9 +260,9 @@ Nodes (12): main(), Add custom font families. Args: fonts: Dict of font_type: [f
 Cohesion: 0.11
 Nodes (21): Slides Master Reference, Slides Copywriting Formulas Reference, High-Impact Headline and Social Proof Patterns, Persuasive Copywriting Formulas (PAS, AIDA, FAB, Before-After), Slide Type to Copywriting Formula Mapping, Slides Create Invocation Reference, Slides Skill Task Invocation Handler, Slides HTML Template Reference (+13 more)
 
-### Community 17 - "color"
-Cohesion: 0.29
-Nodes (7): $type, $value, background, destructive, $type, $value, color
+### Community 17 - "Requirements & Implementation Details"
+Cohesion: 0.17
+Nodes (11): Context, Files to touch, Global Constraints, Report Contract, Requirements & Implementation Details, Step 1: Write the failing test in `src/features/rentals/domain/__tests__/rentalCalculations.test.js`, Step 2: Run test to verify failure, Step 3: Implement minimal code in `src/features/rentals/domain/rentalCalculations.js` (+3 more)
 
 ### Community 18 - "generate-slide.py"
 Cohesion: 0.15
@@ -272,8 +285,8 @@ Cohesion: 0.20
 Nodes (15): apply_color(), apply_viewbox_size(), extract_svgs(), generate_batch(), generate_icon(), generate_sizes(), load_env(), main() (+7 more)
 
 ### Community 23 - "fontSize"
-Cohesion: 0.06
-Nodes (47): $type, $value, $type, $value, $type, $value, $type, $value (+39 more)
+Cohesion: 0.12
+Nodes (16): $type, $value, $type, $value, $type, $value, $type, $value (+8 more)
 
 ### Community 24 - "TestShadcnInstaller"
 Cohesion: 0.12
@@ -281,7 +294,7 @@ Nodes (9): Test adding components in dry run mode., Test ShadcnInstaller class.,
 
 ### Community 25 - "devDependencies"
 Cohesion: 0.13
-Nodes (15): @google/clasp, oxlint, devDependencies, @google/clasp, oxlint, @playwright/test, @testing-library/jest-dom, @testing-library/react (+7 more)
+Nodes (15): @google/clasp, oxlint, devDependencies, @google/clasp, oxlint, @playwright/test, @testing-library/react, @types/react (+7 more)
 
 ### Community 26 - "extract-colors.cjs"
 Cohesion: 0.22
@@ -291,13 +304,13 @@ Nodes (11): calculateCompliance(), colorDistance(), displayPalette(), extractHex
 Cohesion: 0.25
 Nodes (13): checkManifest(), formatBytes(), formatOutput(), fs, main(), parseFilename(), path, RULES (+5 more)
 
-### Community 28 - "CIP Design Reference"
-Cohesion: 0.20
-Nodes (12): CIP Deliverable Guide, 50 Corporate Identity Deliverables Taxonomy, Office and Environmental Branding System, Stationery Deliverables Package, CIP Design Reference, CIP Industry Categories Guide, AI Mockup Generation System, CIP Workflow Process (+4 more)
+### Community 28 - "Logo Design Reference"
+Cohesion: 0.08
+Nodes (31): CIP Deliverable Guide, 50 Corporate Identity Deliverables Taxonomy, Office and Environmental Branding System, Stationery Deliverables Package, CIP Design Reference, CIP Industry Categories Guide, AI Mockup Generation System, CIP Workflow Process (+23 more)
 
-### Community 29 - "destructive-foreground"
-Cohesion: 0.67
-Nodes (3): destructive-foreground, $type, $value
+### Community 29 - "Requirements & Implementation Details"
+Cohesion: 0.17
+Nodes (11): Context, Files to touch, Global Constraints, Report Contract, Requirements & Implementation Details, Step 1: Write the failing test in `src/features/rentals/hooks/__tests__/useRentalActions.test.js`, Step 2: Run test to verify failure, Step 3: Implement minimal code in `src/features/rentals/hooks/useRentalActions.js` (+3 more)
 
 ### Community 30 - "validate-tokens.cjs"
 Cohesion: 0.24
@@ -305,7 +318,7 @@ Nodes (11): extensions, formatReport(), fs, getFiles(), main(), parseArgs(), pat
 
 ### Community 31 - "ShadcnInstaller"
 Cohesion: 0.20
-Nodes (7): main(), Handle shadcn/ui component installation., ShadcnInstaller, Tests for shadcn_add.py, Test adding components that are already installed., Test listing installed components when they exist., Test getting installed components without config.
+Nodes (7): main(), Handle shadcn/ui component installation., ShadcnInstaller, Tests for shadcn_add.py, Test adding components without shadcn config., Test listing installed components when they exist., Test getting installed components without config.
 
 ### Community 32 - ".check_shadcn_config"
 Cohesion: 0.21
@@ -323,9 +336,9 @@ Nodes (10): extractColorsFromTable(), extractCoreAttributes(), extractHexColors(
 Cohesion: 0.18
 Nodes (8): args, fs, minimal, MINIMAL_TOKENS, path, projectRoot, tokensPath, wrapStyle
 
-### Community 36 - "primitive"
-Cohesion: 0.17
-Nodes (11): dark, semantic, normal, slow, $type, $value, primitive, duration (+3 more)
+### Community 36 - "duration"
+Cohesion: 0.20
+Nodes (10): fast, normal, slow, $type, $value, $type, $value, duration (+2 more)
 
 ### Community 37 - "patch"
 Cohesion: 0.18
@@ -343,9 +356,9 @@ Nodes (10): detect_domain(), _load_csv(), Load CSV and return list of dicts, Cor
 Cohesion: 0.18
 Nodes (11): @google/gemini-cli, dependencies, @google/gemini-cli, react, react-dom, @supabase/supabase-js, sweetalert2, react (+3 more)
 
-### Community 41 - "foreground"
-Cohesion: 0.67
-Nodes (3): foreground, $type, $value
+### Community 41 - "radius"
+Cohesion: 0.24
+Nodes (10): $type, $value, $type, $value, primitive, radius, shadow, full (+2 more)
 
 ### Community 42 - "logo/generate.py"
 Cohesion: 0.29
@@ -375,13 +388,13 @@ Nodes (5): BM25, BM25 ranking algorithm for text search, Lowercase, split, remov
 Cohesion: 0.25
 Nodes (9): Evren House Web Entrypoint, Theme Initializer (kw_theme), Google Apps Script Serverless Backend, Kasir DB Rental POS System, Live Rental Tracking & Overtime Engine, Dynamic Partial Returns & Split Billing, QR Code Receipts & Thermal Printing, 6 AM Shift Rollover & Queue Management (+1 more)
 
-### Community 49 - "muted"
-Cohesion: 0.67
-Nodes (3): muted, $type, $value
+### Community 49 - "Task 3 Report: Additional Order Receipt Template & Printer Hook"
+Cohesion: 0.29
+Nodes (6): Commit, Concerns, Summary, Task 3 Report: Additional Order Receipt Template & Printer Hook, TDD Workflow, Tests
 
-### Community 50 - "rentals/components/CalculateRentalModal.jsx"
-Cohesion: 0.21
-Nodes (14): SHIFT_ROLLOVER_HOUR, CalculateRentalModal(), calcOT(), calcOTCost(), calculateItemDetail(), calculatePartialReturn(), calculateRentalTotals(), formatOvertimeStrings() (+6 more)
+### Community 50 - "rentalCalculations.js"
+Cohesion: 0.30
+Nodes (11): calcOT(), calcOTCost(), calculateItemDetail(), calculatePartialReturn(), calculateRentalTotals(), formatOvertimeStrings(), localDateStr(), SD (+3 more)
 
 ### Community 51 - "design_system.py"
 Cohesion: 0.12
@@ -399,13 +412,13 @@ Nodes (7): plugins, rules, react/only-export-components, react/rules-of-hooks, $
 Cohesion: 0.25
 Nodes (8): scripts, build, dev, lint, preview, test, test:coverage, test:watch
 
-### Community 55 - "muted-foreground"
-Cohesion: 0.67
-Nodes (3): muted-foreground, $type, $value
+### Community 55 - "sm"
+Cohesion: 0.60
+Nodes (5): sm, sm, sm, $type, $value
 
-### Community 56 - "primary"
-Cohesion: 0.67
-Nodes (3): primary, $type, $value
+### Community 56 - "lg"
+Cohesion: 0.60
+Nodes (5): lg, $type, $value, lg, lg
 
 ### Community 57 - "UX & Performance Improvements Implementation Plan"
 Cohesion: 0.47
@@ -419,17 +432,17 @@ Nodes (16): File Structure Map, Global Constraints, Native Kotlin POS (kasir-mob
 Cohesion: 0.40
 Nodes (4): name, private, type, version
 
-### Community 61 - "primary-foreground"
-Cohesion: 0.67
-Nodes (3): primary-foreground, $type, $value
+### Community 61 - "Requirements & Implementation Details"
+Cohesion: 0.17
+Nodes (11): Context, Files to touch, Global Constraints, Report Contract, Requirements & Implementation Details, Step 1: Write the failing test in `src/features/receipts/__tests__/receiptTemplates.test.js`, Step 2: Run test to verify failure, Step 3: Implement minimal code in `src/features/receipts/receiptTemplates.js` and `src/features/receipts/useReceiptPrinter.js` (+3 more)
 
 ### Community 62 - "Design Spec: Penambahan Barang Sewa Sesi Berjalan & Penggabungan/Pemisahan Bill Akhir"
 Cohesion: 0.12
 Nodes (15): 1. Problem Statement & Latar Belakang, 2.1 Skema Item dalam Sesi (`session.items`), 2.2 Normalisasi Data (`src/lib/utils.js`), 2.3 Pelestarian Metadata pada Partial Return (`src/features/rentals/domain/rentalCalculations.js`), 2. Arsitektur & Perubahan Data Model, 3.1 Kartu Sesi Aktif (`DashboardTab.jsx` / `LiveSessionTimer`), 3.2 Modal Tambah Item (`AddItemModal.jsx`), 3.3 Templat Struk Tambahan (`generateAdditionalReceiptHTML`) (+7 more)
 
-### Community 64 - "primary-hover"
-Cohesion: 0.67
-Nodes (3): primary-hover, $type, $value
+### Community 64 - "Requirements & Implementation Details"
+Cohesion: 0.17
+Nodes (11): Context, Files to touch, Global Constraints, Report Contract, Requirements & Implementation Details, Step 1: Write the failing test in `src/components/__tests__/DashboardTab.test.jsx`, Step 2: Run test to verify failure, Step 3: Implement changes in `src/components/DashboardTab.jsx` and `src/App.jsx` (+3 more)
 
 ### Community 66 - "fix-css.cjs"
 Cohesion: 0.50
@@ -439,65 +452,105 @@ Nodes (3): colorMaps, css, fs
 Cohesion: 1.00
 Nodes (3): Google Apps Script Backend Setup Guide, Google Sheets Database Schema, Apps Script Web App Deployment
 
-### Community 73 - "ring"
-Cohesion: 0.67
-Nodes (3): ring, $type, $value
+### Community 73 - "Task 2 Report: Rental Domain Calculations"
+Cohesion: 0.29
+Nodes (6): Commit, Concerns, Summary, Task 2 Report: Rental Domain Calculations, TDD Workflow, Tests
 
-### Community 74 - "secondary"
-Cohesion: 0.67
-Nodes (3): secondary, $type, $value
+### Community 74 - "react"
+Cohesion: 0.15
+Nodes (14): react, trackSession(), DashboardTab(), LiveSessionTimer(), QRCodeModal(), SettingsAnalytics(), TrackingPage(), AddItemModal() (+6 more)
 
-### Community 75 - "secondary-foreground"
-Cohesion: 0.67
-Nodes (3): secondary-foreground, $type, $value
+### Community 75 - "Requirements & Implementation Details"
+Cohesion: 0.17
+Nodes (11): Context, Files to touch, Global Constraints, Report Contract, Requirements & Implementation Details, Step 1: Write the failing test in `src/__tests__/utils.test.js`, Step 2: Run test to verify failure, Step 3: Implement minimal code in `src/lib/utils.js` (+3 more)
 
 ### Community 76 - "Global Constraints"
 Cohesion: 0.18
 Nodes (10): Global Constraints, Penambahan Barang Sewa Sesi Berjalan & Penggabungan/Pemisahan Bill Akhir Implementation Plan, Self-Review Checklist, Task 1: Data Normalization & Schema Extension (`src/lib/utils.js`), Task 2: Rental Domain Calculations (`src/features/rentals/domain/rentalCalculations.js`), Task 3: Additional Order Receipt Template & Printer Hook (`src/features/receipts/`), Task 4: Rental Action Hook Extension (`useRentalActions.js`), Task 5: Add Item Modal Component (`AddItemModal.jsx`) (+2 more)
 
-### Community 78 - "fast"
+### Community 78 - "Task 6 Implementation Report: Per-Item Overtime Calculation in Checkout (`CalculateRentalModal.jsx`)"
+Cohesion: 0.33
+Nodes (5): Concerns, Status: DONE, Summary of Changes, Task 6 Implementation Report: Per-Item Overtime Calculation in Checkout (`CalculateRentalModal.jsx`), Test Verification
+
+### Community 96 - "xl"
 Cohesion: 0.67
-Nodes (3): fast, $type, $value
+Nodes (4): xl, xl, $type, $value
 
-### Community 79 - "Logo Design Reference"
-Cohesion: 0.18
-Nodes (12): Logo Design Reference, Logo Generation CLI and Search Tooling, Logo Design Workflow Process, Logo Quality and Scalability Evaluation Criteria, Logo AI Prompt Engineering Reference, Logo Prompt Structure and Negative Prompting, Prompt Modifiers for Scalability and Versatility, Style-Specific Logo Prompt Keywords (+4 more)
-
-### Community 101 - "Social Photos Design Guide"
+### Community 118 - "App.jsx"
 Cohesion: 0.22
-Nodes (10): Banner Sizes and Styles Reference, Banner 22 Art Direction Styles, Banner Production QA Checklist, Banner Platform Dimensions and Aspect Ratios, Banner Layout and Safe Zone Rules, Social Photos Design Guide, Headless Chrome / Puppeteer Screenshot Export Pipeline, Social Photo HTML/CSS Canvas Rendering (+2 more)
+Nodes (12): App(), FooterNav(), PaymentModal(), PasswordVerificationModal(), usePOSData(), useRentalActions(), getShiftDate(), generateShortId() (+4 more)
+
+### Community 120 - "SettingsTab.jsx"
+Cohesion: 0.35
+Nodes (11): SettingsTab(), SettingsUsers(), EditActiveSessionModal(), getThemeVars(), makeMixin(), makeToast(), swalConfirm(), swalError() (+3 more)
+
+### Community 122 - "transactions/components/HistoryTab.jsx"
+Cohesion: 0.24
+Nodes (8): dateStr(), formatItemsCell(), formatTimeStr(), HistoryTab(), SHIFT_CODE_MAP, shiftCode(), aggregateHistory(), getShiftDateStr()
+
+### Community 124 - "Requirements & Implementation Details"
+Cohesion: 0.17
+Nodes (11): Context, Files to touch, Global Constraints, Report Contract, Requirements & Implementation Details, Step 1: Write failing test in `src/features/rentals/components/__tests__/AddItemModal.test.jsx`, Step 2: Run test to verify failure, Step 3: Implement `src/features/rentals/components/AddItemModal.jsx` (+3 more)
+
+### Community 125 - "Requirements & Implementation Details"
+Cohesion: 0.17
+Nodes (11): Context, Files to touch, Global Constraints, Report Contract, Requirements & Implementation Details, Step 1: Write the failing test in `src/features/rentals/components/__tests__/CalculateRentalModal.test.jsx`, Step 2: Run test to verify failure, Step 3: Implement per-item elapsed calculation in `CalculateRentalModal.jsx` (+3 more)
+
+### Community 126 - "SDD ledger — plan: docs/superpowers/plans/2026-09-04-additional-rental-items-and-billing.md"
+Cohesion: 0.50
+Nodes (3): Pre-flight Conflict Scan, SDD ledger — plan: docs/superpowers/plans/2026-09-04-additional-rental-items-and-billing.md, Task Log
 
 ### Community 128 - "receiptTemplates.js"
 Cohesion: 0.60
 Nodes (7): dateStr(), generateAdditionalReceiptHTML(), generateFinishReceiptHTML(), generateStartReceiptHTML(), getTrackUrl(), timeStr(), useReceiptPrinter()
 
-### Community 133 - "Design Skills Task Routing Matrix"
-Cohesion: 0.17
-Nodes (12): Design Routing Guide, Design Skills Task Routing Matrix, Multi-Skill Workflow Orchestration, Task Dispatching Rules and Heuristics, Icon Design Reference, SVG Icon Generation Engine (Gemini 3.1 Pro), 15 Icon Styles and 10 Categories Taxonomy, SVG Icon Standards (viewBox 24x24, currentColor) (+4 more)
+### Community 129 - "shift.js"
+Cohesion: 0.42
+Nodes (5): SHIFT_ROLLOVER_HOUR, loginAdmin(), useAuthSession(), checkShiftExpiration(), SHIFT_ROLLOVER_HOUR
 
-### Community 134 - "Logo Color Psychology Reference"
+### Community 130 - "Final Fix Wave Brief: Whole-Branch Review Findings"
+Cohesion: 0.33
+Nodes (5): Context, Files to touch, Final Fix Wave Brief: Whole-Branch Review Findings, Report Contract, Verification
+
+### Community 131 - "Task 7 Implementation Report: POS Dashboard Integration & UI Button (`DashboardTab.jsx` & `App.jsx`)"
+Cohesion: 0.33
+Nodes (5): Concerns, Status: DONE, Summary of Changes, Task 7 Implementation Report: POS Dashboard Integration & UI Button (`DashboardTab.jsx` & `App.jsx`), Test & Build Verification
+
+### Community 132 - "none"
+Cohesion: 0.67
+Nodes (4): $type, $value, none, none
+
+### Community 135 - "Task 4 Report: Rental Action Hook Extension (`src/features/rentals/hooks/useRentalActions.js`)"
 Cohesion: 0.29
-Nodes (7): CIP Style Guide, CIP Color Psychology and Material Finishes, CIP Design Style Archetypes, Logo Color Psychology Reference, Color Harmony Schemes (Analogous, Complementary, Triadic), Industry Color Palette Standards, Color Psychological Meanings and Emotional Associations
+Nodes (6): Commit, Concerns, Status, Summary of Changes, Task 4 Report: Rental Action Hook Extension (`src/features/rentals/hooks/useRentalActions.js`), Test Verification
+
+### Community 137 - "default"
+Cohesion: 0.67
+Nodes (4): $type, $value, default, default
+
+### Community 138 - "Task 5 Report: Add Item Modal Component (`AddItemModal.jsx`)"
+Cohesion: 0.50
+Nodes (3): Status: DONE, Summary of Changes, Task 5 Report: Add Item Modal Component (`AddItemModal.jsx`)
 
 ## Knowledge Gaps
-- **302 isolated node(s):** `fs`, `path`, `fs`, `path`, `fs` (+297 more)
+- **397 isolated node(s):** `fs`, `path`, `fs`, `path`, `fs` (+392 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **45 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **48 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `primitive` connect `primitive` to `gray`, `spacing`, `fontSize`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **Why does `component` connect `button` to `primitive`?**
-  _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **Why does `color` connect `gray` to `primitive`?**
+- **Why does `primitive` connect `radius` to `gray`, `color`, `duration`, `spacing`, `fontSize`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `Three-Layer Token Architecture (Primitive -> Semantic -> Component)` connect `Color Semantic Tokens (Primary, Muted, Destructive)` to `Slides Master Reference`, `Brand Identity & Consistency Skill`?**
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `Design Skills Task Routing Matrix` connect `Color Semantic Tokens (Primary, Muted, Destructive)` to `Slides Master Reference`, `Logo Design Reference`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `TailwindConfigGenerator` (e.g. with `TestGeneratedConfigIsValidJs` and `TestTailwindConfigGenerator`) actually correct?**
   _`TailwindConfigGenerator` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `fs`, `path`, `fs` to the rest of the system?**
-  _302 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `App.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.053904873752201994 - nodes in this community are weakly interconnected._
+  _397 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `api.js` be split into smaller, more focused modules?**
+  _Cohesion score 0.13968253968253969 - nodes in this community are weakly interconnected._
 - **Should `gray` be split into smaller, more focused modules?**
   _Cohesion score 0.05370101596516691 - nodes in this community are weakly interconnected._

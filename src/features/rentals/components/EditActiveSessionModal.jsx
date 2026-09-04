@@ -61,7 +61,7 @@ function EditActiveSessionModal({ session, onClose, onSave }) {
         <div className="modal-content cmodal">
           <div className="modal-header cmodal-head">
             <h5 className="modal-title"><i className="bi bi-pencil-fill me-2 clr-yellow"></i>Edit Sesi Aktif</h5>
-            <button type="button" className="btn-close" onClick={onClose}></button>
+            <button type="button" className="btn-close" onClick={onClose} aria-label="Tutup"></button>
           </div>
           <div className="modal-body p-0">
             <div className="edit-sesi-wrap" style={{ padding: '20px' }}>
@@ -74,6 +74,7 @@ function EditActiveSessionModal({ session, onClose, onSave }) {
                   value={nama} 
                   onChange={(e) => setNama(e.target.value)}
                   style={{ paddingLeft: '12px' }} 
+                  aria-label="Nama Penyewa"
                 />
               </div>
               <div className="mb-3">
@@ -86,6 +87,7 @@ function EditActiveSessionModal({ session, onClose, onSave }) {
                       value="cash" 
                       checked={payAwal === 'cash'} 
                       onChange={() => setPayAwal('cash')}
+                      aria-label="Cash"
                     />
                     <span className="ms-1"><i className="bi bi-cash-stack me-1"></i>Cash</span>
                   </label>
@@ -96,6 +98,7 @@ function EditActiveSessionModal({ session, onClose, onSave }) {
                       value="qris" 
                       checked={payAwal === 'qris'} 
                       onChange={() => setPayAwal('qris')}
+                      aria-label="QRIS"
                     />
                     <span className="ms-1"><i className="bi bi-qr-code-scan me-1"></i>QRIS</span>
                   </label>
@@ -113,9 +116,23 @@ function EditActiveSessionModal({ session, onClose, onSave }) {
                         <span className="ms-2">{item.name}</span>
                       </div>
                       <div className="edit-sesi-qty-ctrl d-flex align-items-center gap-2">
-                        <button className="edit-sesi-qty-btn btn btn-sm btn-outline-secondary" onClick={() => handleChgQty(item.code, -1)}>−</button>
-                        <span className="edit-sesi-qty-val font-weight-bold" style={{ minWidth: '20px', textAlign: 'center' }}>{qty}</span>
-                        <button className="edit-sesi-qty-btn btn btn-sm btn-outline-secondary" onClick={() => handleChgQty(item.code, 1)}>+</button>
+                        <button 
+                          type="button" 
+                          className="edit-sesi-qty-btn btn btn-sm btn-outline-secondary d-flex align-items-center justify-content-center" 
+                          onClick={() => handleChgQty(item.code, -1)}
+                          aria-label={`Kurangi ${item.name}`}
+                        >
+                          <i className="bi bi-dash fs-6"></i>
+                        </button>
+                        <span className="edit-sesi-qty-val font-weight-bold font-monospace" style={{ minWidth: '20px', textAlign: 'center' }}>{qty}</span>
+                        <button 
+                          type="button" 
+                          className="edit-sesi-qty-btn btn btn-sm btn-outline-secondary d-flex align-items-center justify-content-center" 
+                          onClick={() => handleChgQty(item.code, 1)}
+                          aria-label={`Tambah ${item.name}`}
+                        >
+                          <i className="bi bi-plus fs-6"></i>
+                        </button>
                       </div>
                     </div>
                   );

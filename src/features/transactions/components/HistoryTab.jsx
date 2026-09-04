@@ -218,9 +218,9 @@ function HistoryTab({ transactions, onPrintTxn, onDeleteTxn, onClearHistory, cur
                         <td data-label="Total QRIS" data-empty={(pokokQris + (t.qris || 0)) === 0 || undefined}><span style={{ fontWeight: 800, color: 'var(--cyan)' }}>{fmtRp(pokokQris + (t.qris || 0))}</span></td>
                         <td data-label="Grand Total"><span style={{ fontWeight: 800, color: 'var(--yellow)' }}>{fmtRp(t.totalAll || ((t.totalBase || 0) + (t.grandTotal || 0)))}</span></td>
                         <td data-label="Aksi">
-                          <button className="act-btn me-2" onClick={() => onPrintTxn(t)} title="Print Struk"><i className="bi bi-printer-fill text-secondary"></i></button>
+                          <button className="act-btn me-2" onClick={() => onPrintTxn(t)} title="Print Struk" aria-label={`Cetak struk ${t.nama}`}><i className="bi bi-printer-fill text-secondary"></i></button>
                           {!isCashier && (
-                            <button className="act-btn" onClick={() => onDeleteTxn(t)} title="Hapus Bill"><i className="bi bi-trash3-fill clr-red"></i></button>
+                            <button className="act-btn" onClick={() => onDeleteTxn(t)} title="Hapus Bill" aria-label={`Hapus transaksi ${t.nama}`}><i className="bi bi-trash3-fill clr-red"></i></button>
                           )}
                         </td>
                       </tr>

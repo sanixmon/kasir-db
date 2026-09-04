@@ -41,7 +41,7 @@ function PaymentModal({ bayarData, onClose, onFinalize }) {
         <div className="modal-content cmodal">
           <div className="modal-header cmodal-head">
             <h5 className="modal-title"><i className="bi bi-credit-card-fill me-2 clr-green"></i>Pembayaran</h5>
-            <button type="button" className="btn-close" onClick={onClose}></button>
+            <button type="button" className="btn-close" onClick={onClose} aria-label="Tutup"></button>
           </div>
           <div className="modal-body p-0">
             <div className="bayar-wrap" style={{ padding: '20px' }}>
@@ -52,42 +52,92 @@ function PaymentModal({ bayarData, onClose, onFinalize }) {
 
               <div className="pay-methods d-flex gap-2 justify-content-center mb-3">
                 <button 
+                  type="button"
                   disabled={isNoOT && session.payAwal !== 'cash'}
-                  className={`btn flex-fill py-2 btn-outline-primary ${payMode === 'cash' ? 'active' : ''}`}
+                  className={`btn flex-fill py-2 btn-outline-primary d-inline-flex align-items-center justify-content-center ${payMode === 'cash' ? 'active' : ''}`}
                   onClick={() => { setPayMode('cash'); setCashAmt(grand); setQrisAmt(0); }}
+                  aria-label="Metode Pembayaran Cash"
                 >
-                  💵 Cash
+                  <i className="bi bi-cash-stack me-2 fs-5"></i>
+                  <span>Cash</span>
                 </button>
                 <button 
+                  type="button"
                   disabled={isNoOT && session.payAwal !== 'qris'}
-                  className={`btn flex-fill py-2 btn-outline-primary ${payMode === 'qris' ? 'active' : ''}`}
+                  className={`btn flex-fill py-2 btn-outline-primary d-inline-flex align-items-center justify-content-center ${payMode === 'qris' ? 'active' : ''}`}
                   onClick={() => { setPayMode('qris'); setCashAmt(0); setQrisAmt(grand); }}
+                  aria-label="Metode Pembayaran QRIS"
                 >
-                  📱 QRIS
+                  <i className="bi bi-qr-code-scan me-2 fs-5"></i>
+                  <span>QRIS</span>
                 </button>
               </div>
 
               {payMode === 'cash' && (
                 <div className="mb-3">
-                  <label className="field-label">Jumlah Uang Cash Diterima</label>
+                  <label htmlFor="cashReceivedInput" className="field-label">Jumlah Uang Cash Diterima</label>
                   <input 
+                    id="cashReceivedInput"
                     type="number" 
                     className="cfield" 
                     style={{ paddingLeft: '12px' }}
                     value={cashAmt}
                     onChange={(e) => setCashAmt(Number(e.target.value))} 
+                    aria-label="Jumlah Uang Cash Diterima"
                   />
-                  <div className="kembalian-box mt-3 p-2 bg-success-subtle text-success rounded d-flex justify-content-between">
-                    <span>Kembalian</span>
-                    <strong>{fmtRp(changeVal)}</strong>
-                  </div>
+                  {grand > 0 && (
+                    <div className="d-flex gap-2 mt-2 flex-wrap">
+                      <button 
+                        type="button" 
+                        className="btn btn-sm btn-outline-secondary py-1 px-2"
+                        onClick={() => setCashAmt(grand)}
+                        style={{ fontSize: '0.78rem' }}
+                      >
+                        Uang Pas
+                      </button>
+                      {grand <= 50000 && (
+                        <button 
+                          type="button" 
+                          className="btn btn-sm btn-outline-secondary py-1 px-2"
+                          onClick={() => setCashAmt(50000)}
+                          style={{ fontSize: '0.78rem' }}
+                        >
+                          Rp 50.000
+                        </button>
+                      )}
+                      {grand <= 100000 && (
+                        <button 
+                          type="button" 
+                          className="btn btn-sm btn-outline-secondary py-1 px-2"
+                          onClick={() => setCashAmt(100000)}
+                          style={{ fontSize: '0.78rem' }}
+                        >
+                          Rp 100.000
+                        </button>
+                      )}
+                    </div>
+                  )}
+                  {cashAmt < grand && grand > 0 ? (
+                    <div className="text-warning small mt-2 d-flex align-items-center gap-1">
+                      <i className="bi bi-exclamation-triangle-fill"></i>
+                      <span>Uang diterima kurang dari total tagihan ({fmtRp(grand - cashAmt)} lagi)</span>
+                    </div>
+                  ) : (
+                    <div className="kembalian-box mt-3 p-2 bg-success-subtle text-success rounded d-flex justify-content-between">
+                      <span>Kembalian</span>
+                      <strong>{fmtRp(changeVal)}</strong>
+                    </div>
+                  )}
                 </div>
               )}
 
               {payMode === 'qris' && (
-                <div className="p-3 text-center border rounded mb-3">
-                  <div style={{ fontSize: '2rem' }}>📱 Scan QRIS</div>
-                  <div style={{ color: 'var(--yellow)', fontSize: '1.2rem' }}>{fmtRp(grand)}</div>
+                <div className="p-3 text-center border rounded mb-3" style={{ background: 'var(--bg3)' }}>
+                  <div className="mb-2" style={{ fontSize: '1.8rem', color: 'var(--cyan)' }}>
+                    <i className="bi bi-qr-code-scan"></i>
+                  </div>
+                  <div className="fw-bold mb-1">Scan QRIS Kasir</div>
+                  <div style={{ color: 'var(--yellow)', fontSize: '1.2rem', fontWeight: 800 }}>{fmtRp(grand)}</div>
                 </div>
               )}
 

@@ -61,7 +61,7 @@ function AddItemModal({ session, onClose, onSave, itemsCatalog = ITEMS }) {
               <i className="bi bi-plus-circle-fill me-2 clr-cyan"></i>
               Tambah Barang Sewa
             </h5>
-            <button type="button" className="btn-close" onClick={onClose} disabled={isSubmitting}></button>
+            <button type="button" className="btn-close" onClick={onClose} disabled={isSubmitting} aria-label="Tutup"></button>
           </div>
           <div className="modal-body p-3">
             <div className="info-box mb-3 p-2 border rounded">
@@ -75,7 +75,7 @@ function AddItemModal({ session, onClose, onSave, itemsCatalog = ITEMS }) {
             </div>
 
             <div className="small text-secondary mb-2 fw-bold">Pilih Barang Tambahan</div>
-            <div className="edit-sesi-items mb-3" style={{ maxHeight: '200px', overflowY: 'auto' }}>
+            <div className="edit-sesi-items mb-3" style={{ maxHeight: '220px', overflowY: 'auto' }}>
               {itemsCatalog.map(item => {
                 const qty = selectedQty[item.code] || 0;
                 return (
@@ -88,18 +88,24 @@ function AddItemModal({ session, onClose, onSave, itemsCatalog = ITEMS }) {
                     <div className="d-flex align-items-center gap-2">
                       <button 
                         type="button" 
-                        className="btn btn-sm btn-outline-secondary" 
+                        className="btn btn-sm btn-outline-secondary d-flex align-items-center justify-content-center" 
+                        style={{ width: '36px', height: '36px' }}
                         onClick={() => handleChgQty(item.code, -1)}
                         disabled={qty <= 0}
-                        aria-label="Kurang"
-                      >−</button>
-                      <span className="fw-bold" style={{ minWidth: '24px', textAlign: 'center' }}>{qty}</span>
+                        aria-label={`Kurang ${item.name}`}
+                      >
+                        <i className="bi bi-dash fs-6"></i>
+                      </button>
+                      <span className="fw-bold font-monospace" style={{ minWidth: '24px', textAlign: 'center' }}>{qty}</span>
                       <button 
                         type="button" 
-                        className="btn btn-sm btn-outline-secondary" 
+                        className="btn btn-sm btn-outline-secondary d-flex align-items-center justify-content-center" 
+                        style={{ width: '36px', height: '36px' }}
                         onClick={() => handleChgQty(item.code, 1)}
-                        aria-label="Tambah"
-                      >+</button>
+                        aria-label={`Tambah ${item.name}`}
+                      >
+                        <i className="bi bi-plus fs-6"></i>
+                      </button>
                     </div>
                   </div>
                 );
@@ -114,27 +120,31 @@ function AddItemModal({ session, onClose, onSave, itemsCatalog = ITEMS }) {
             <div className="mb-3">
               <div className="small text-secondary mb-2 fw-bold">Metode Pembayaran Tambahan</div>
               <div className="d-flex gap-2">
-                <label className={`flex-fill border p-2 rounded text-center cursor-pointer ${payAwal === 'cash' ? 'border-primary bg-primary-subtle' : ''}`}>
+                <label className={`flex-fill border p-2 rounded text-center cursor-pointer d-flex align-items-center justify-content-center ${payAwal === 'cash' ? 'border-primary bg-primary-subtle' : ''}`}>
                   <input 
                     type="radio" 
                     name="addPayAwal" 
                     value="cash" 
                     checked={payAwal === 'cash'} 
                     onChange={() => setPayAwal('cash')}
-                    className="me-1" 
+                    className="me-2" 
+                    aria-label="Cash"
                   />
-                  💵 Cash
+                  <i className="bi bi-cash-stack me-1 fs-5"></i>
+                  <span>Cash</span>
                 </label>
-                <label className={`flex-fill border p-2 rounded text-center cursor-pointer ${payAwal === 'qris' ? 'border-primary bg-primary-subtle' : ''}`}>
+                <label className={`flex-fill border p-2 rounded text-center cursor-pointer d-flex align-items-center justify-content-center ${payAwal === 'qris' ? 'border-primary bg-primary-subtle' : ''}`}>
                   <input 
                     type="radio" 
                     name="addPayAwal" 
                     value="qris" 
                     checked={payAwal === 'qris'} 
                     onChange={() => setPayAwal('qris')}
-                    className="me-1" 
+                    className="me-2" 
+                    aria-label="QRIS"
                   />
-                  📱 QRIS
+                  <i className="bi bi-qr-code-scan me-1 fs-5"></i>
+                  <span>QRIS</span>
                 </label>
               </div>
             </div>
@@ -148,9 +158,40 @@ function AddItemModal({ session, onClose, onSave, itemsCatalog = ITEMS }) {
                   placeholder={`Contoh: ${totalAdditional}`}
                   value={cashGiven}
                   onChange={(e) => setCashGiven(e.target.value)}
+                  aria-label="Jumlah Uang Diterima"
                 />
+                <div className="d-flex gap-2 mt-2 flex-wrap">
+                  <button 
+                    type="button" 
+                    className="btn btn-sm btn-outline-secondary py-1 px-2"
+                    onClick={() => setCashGiven(String(totalAdditional))}
+                    style={{ fontSize: '0.78rem' }}
+                  >
+                    Uang Pas
+                  </button>
+                  {totalAdditional <= 50000 && (
+                    <button 
+                      type="button" 
+                      className="btn btn-sm btn-outline-secondary py-1 px-2"
+                      onClick={() => setCashGiven('50000')}
+                      style={{ fontSize: '0.78rem' }}
+                    >
+                      Rp 50.000
+                    </button>
+                  )}
+                  {totalAdditional <= 100000 && (
+                    <button 
+                      type="button" 
+                      className="btn btn-sm btn-outline-secondary py-1 px-2"
+                      onClick={() => setCashGiven('100000')}
+                      style={{ fontSize: '0.78rem' }}
+                    >
+                      Rp 100.000
+                    </button>
+                  )}
+                </div>
                 {cashNum > totalAdditional && (
-                  <div className="small text-success mt-1 d-flex justify-content-between">
+                  <div className="small text-success mt-2 d-flex justify-content-between">
                     <span>Kembalian:</span>
                     <strong>{fmtRp(changeAmt)}</strong>
                   </div>

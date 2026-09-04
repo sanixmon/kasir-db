@@ -71,6 +71,7 @@ function LoginPage({ onLogin, onBack }) {
               onChange={(e) => { setUsername(e.target.value); setError(''); }}
               className="login-field with-icon"
               placeholder="Ketik nama kasir..."
+              aria-label="Nama Kasir"
               autoComplete="off"
               autoFocus
             />
@@ -85,6 +86,7 @@ function LoginPage({ onLogin, onBack }) {
               onChange={(e) => { setPassword(e.target.value); setError(''); }}
               className="login-field with-icon with-toggle"
               placeholder="Password shift..."
+              aria-label="Password Shift"
             />
             <button
               type="button"

@@ -1,16 +1,16 @@
-# Graph Report - kasir-db  (2026-09-05)
+# Graph Report - kasir-db  (2026-08-27)
 
 ## Corpus Check
-- 191 files · ~126,944 words
+- 185 files · ~119,104 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1403 nodes · 2245 edges · 126 communities (81 shown, 45 thin omitted)
+- 1369 nodes · 2190 edges · 117 communities (72 shown, 45 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 102 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2103e2a0`
+- Built from commit: `3058516f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,7 +18,7 @@
 - App.jsx
 - gray
 - search
-- semantic
+- color
 - UI Styling Skill
 - Color Semantic Tokens (Primary, Muted, Destructive)
 - db.js
@@ -32,7 +32,7 @@
 - BM25
 - TailwindConfigGenerator
 - Slides Master Reference
-- color
+- 800
 - generate-slide.py
 - DesignSystemGenerator
 - fetch-background.py
@@ -44,7 +44,7 @@
 - extract-colors.cjs
 - validate-asset.cjs
 - CIP Design Reference
-- destructive-foreground
+- Logo Design Reference
 - validate-tokens.cjs
 - ShadcnInstaller
 - .check_shadcn_config
@@ -56,7 +56,7 @@
 - test_tailwind_config_gen.py
 - search
 - dependencies
-- foreground
+- Social Photos Design Guide
 - logo/generate.py
 - generate-tokens.cjs
 - ._base_config
@@ -64,23 +64,22 @@
 - _run
 - BM25
 - Kasir DB Rental POS System
-- muted
-- rentals/components/CalculateRentalModal.jsx
+- Design Skills Task Routing Matrix
+- 950
 - design_system.py
 - appsscript.json
 - .oxlintrc.json
 - scripts
-- muted-foreground
-- primary
+- Logo Color Psychology Reference
+- .test_add_components_already_installed
 - UX & Performance Improvements Implementation Plan
 - ErrorBoundary
 - Tasks
 - package.json
-- primary-foreground
-- Design Spec: Penambahan Barang Sewa Sesi Berjalan & Penggabungan/Pemisahan Bill Akhir
-- .test_add_components_no_components
-- primary-hover
-- @vitest/coverage-v8
+- Token Architecture Reference
+- vitest
+- color
+- 50
 - fix-css.cjs
 - test_sync_brand_to_tokens.py
 - main
@@ -88,13 +87,10 @@
 - .temp_project
 - Google Apps Script Backend Setup Guide
 - Graphify Query & AST Update Workflow
-- ring
-- secondary
-- secondary-foreground
-- Global Constraints
+- .test_add_components_no_config
+- $type
+- .test_init_default_project_root
 - .test_init_dry_run
-- fast
-- Logo Design Reference
 - .test_add_fonts
 - .test_recommend_plugins
 - .test_recommend_plugins_nextjs
@@ -112,10 +108,10 @@
 - .test_default_content_paths_react
 - .test_default_content_paths_vue
 - jsdom
+- @testing-library/jest-dom
 - @testing-library/user-event
 - @types/react-dom
 - @vitejs/plugin-react
-- Social Photos Design Guide
 - Brand Visual Identity
 - Bluesky Icon
 - Discord Icon
@@ -126,27 +122,22 @@
 - Graphify Workflow
 - PNPM Workspace Build Configuration
 - Vite Logo
+- $type
 - .test_check_shadcn_config_exists
-- .test_get_installed_components_with_files
-- .test_init_default_project_root
-- receiptTemplates.js
-- Design Skills Task Routing Matrix
-- Logo Color Psychology Reference
 - .test_get_installed_components_empty
-- .test_add_components_no_config
-- vitest
+- .test_get_installed_components_with_files
 
 ## God Nodes (most connected - your core abstractions)
 1. `TailwindConfigGenerator` - 58 edges
 2. `TestTailwindConfigGenerator` - 35 edges
 3. `ShadcnInstaller` - 34 edges
-4. `react` - 34 edges
+4. `react` - 30 edges
 5. `TestShadcnInstaller` - 26 edges
-6. `fmtRp()` - 26 edges
-7. `getShiftDate()` - 23 edges
+6. `getShiftDate()` - 23 edges
+7. `fmtRp()` - 23 edges
 8. `handleAction()` - 21 edges
 9. `apiCall()` - 20 edges
-10. `swalWarning()` - 16 edges
+10. `color` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Evren House Web Entrypoint` --conceptually_related_to--> `Kasir DB Rental POS System`  [INFERRED]
@@ -177,35 +168,35 @@
 - **Shadcn & Tailwind UI Styling Framework** — agents_skills_ui_styling_skill, agents_skills_ui_styling_references_shadcn_components, agents_skills_ui_styling_references_shadcn_theming, agents_skills_ui_styling_references_tailwind_customization [INFERRED 0.85]
 - **Google Sheets POS Backend Integration Flow** — docs_google_apps_script_readme, docs_google_apps_script_readme_sheet_schema, docs_google_apps_script_readme_webapp_deployment [INFERRED 0.95]
 
-## Communities (126 total, 45 thin omitted)
+## Communities (117 total, 45 thin omitted)
 
 ### Community 0 - "App.jsx"
 Cohesion: 0.05
-Nodes (75): react, addDeletionLog(), addSession(), apiCall(), authHeaders(), authToken, backupDatabase(), changeAdminPassword() (+67 more)
+Nodes (79): react, addDeletionLog(), addSession(), apiCall(), authHeaders(), authToken, backupDatabase(), changeAdminPassword() (+71 more)
 
 ### Community 1 - "gray"
-Cohesion: 0.05
-Nodes (53): $type, $value, $type, $value, $type, $value, $type, $value (+45 more)
+Cohesion: 0.12
+Nodes (16): $type, $value, $type, $value, $type, $value, $type, $value (+8 more)
 
 ### Community 2 - "search"
 Cohesion: 0.07
 Nodes (42): BM25, detect_domain(), get_cip_brief(), _load_csv(), Load CSV and return list of dicts, Core search function using BM25, Auto-detect the most relevant domain from query, Main search function with auto-domain detection (+34 more)
 
-### Community 3 - "semantic"
-Cohesion: 0.25
-Nodes (8): $type, $value, $type, $value, semantic, spacing, component, section
+### Community 3 - "color"
+Cohesion: 0.04
+Nodes (48): $type, $value, background, destructive, destructive-foreground, foreground, muted, muted-foreground (+40 more)
 
 ### Community 4 - "UI Styling Skill"
 Cohesion: 0.05
 Nodes (48): Slide Copywriting Formulas, Attention-Interest-Desire-Action (AIDA) Formula, Before-After-Bridge (BAB) Formula, Slide Headline Rules, Problem-Agitate-Solve (PAS) Formula, Slides Creation Guide, HTML Slide Template Structure, Slide CSS Variable Tokens (+40 more)
 
 ### Community 5 - "Color Semantic Tokens (Primary, Muted, Destructive)"
-Cohesion: 0.10
-Nodes (45): Three-Layer Token Architecture (Primitive -> Semantic -> Component), Component Specifications Reference, Badge Component Specification, Button Component Specification, Card Component Specification, Dialog Modal Specification, Dropdown Menu Specification, Input Component Specification (+37 more)
+Cohesion: 0.09
+Nodes (47): Brand Identity Update Workflow, Brand Guidelines to Design Tokens Sync, Three-Layer Token Architecture (Primitive -> Semantic -> Component), Component Specifications Reference, Badge Component Specification, Button Component Specification, Card Component Specification, Dialog Modal Specification (+39 more)
 
 ### Community 6 - "db.js"
-Cohesion: 0.09
-Nodes (41): addDeletedTxnToDb(), addDeletionLog(), addSession(), ADMIN_ONLY_ACTIONS, backupDatabase(), changeAdminPassword(), claimSession(), clearAllTxns() (+33 more)
+Cohesion: 0.07
+Nodes (55): addDeletedTxnToDb(), addDeletionLog(), addSession(), ADMIN_ONLY_ACTIONS, backupDatabase(), changeAdminPassword(), claimSession(), clearAllTxns() (+47 more)
 
 ### Community 7 - "button"
 Cohesion: 0.06
@@ -221,7 +212,7 @@ Nodes (34): $type, $value, $type, $value, $type, $value, $type, $value (+26 more
 
 ### Community 10 - "Brand Identity & Consistency Skill"
 Cohesion: 0.07
-Nodes (35): 22 Art Direction Styles, Banner Safe Zones & Visual Hierarchy Rules, Banner Sizes & Art Direction Reference Guide, Banner Platform Sizes & Aspect Ratio Specs, Banner Design Multi-Format Skill, Standard (Flash) vs Pro Image Generation Selection, Banner Creation Workflow & Export Pipeline, Marketing Asset Approval Checklist (+27 more)
+Nodes (33): 22 Art Direction Styles, Banner Safe Zones & Visual Hierarchy Rules, Banner Sizes & Art Direction Reference Guide, Banner Platform Sizes & Aspect Ratio Specs, Banner Design Multi-Format Skill, Standard (Flash) vs Pro Image Generation Selection, Banner Creation Workflow & Export Pipeline, Marketing Asset Approval Checklist (+25 more)
 
 ### Community 11 - "TestTailwindConfigGenerator"
 Cohesion: 0.06
@@ -247,9 +238,9 @@ Nodes (12): main(), Add custom font families. Args: fonts: Dict of font_type: [f
 Cohesion: 0.11
 Nodes (21): Slides Master Reference, Slides Copywriting Formulas Reference, High-Impact Headline and Social Proof Patterns, Persuasive Copywriting Formulas (PAS, AIDA, FAB, Before-After), Slide Type to Copywriting Formula Mapping, Slides Create Invocation Reference, Slides Skill Task Invocation Handler, Slides HTML Template Reference (+13 more)
 
-### Community 17 - "color"
-Cohesion: 0.29
-Nodes (7): $type, $value, background, destructive, $type, $value, color
+### Community 17 - "800"
+Cohesion: 0.67
+Nodes (4): $type, $value, 800, 800
 
 ### Community 18 - "generate-slide.py"
 Cohesion: 0.15
@@ -281,7 +272,7 @@ Nodes (9): Test adding components in dry run mode., Test ShadcnInstaller class.,
 
 ### Community 25 - "devDependencies"
 Cohesion: 0.13
-Nodes (15): @google/clasp, oxlint, devDependencies, @google/clasp, oxlint, @playwright/test, @testing-library/jest-dom, @testing-library/react (+7 more)
+Nodes (15): @google/clasp, oxlint, devDependencies, @google/clasp, oxlint, @playwright/test, @testing-library/react, @types/react (+7 more)
 
 ### Community 26 - "extract-colors.cjs"
 Cohesion: 0.22
@@ -295,9 +286,9 @@ Nodes (13): checkManifest(), formatBytes(), formatOutput(), fs, main(), parseFil
 Cohesion: 0.20
 Nodes (12): CIP Deliverable Guide, 50 Corporate Identity Deliverables Taxonomy, Office and Environmental Branding System, Stationery Deliverables Package, CIP Design Reference, CIP Industry Categories Guide, AI Mockup Generation System, CIP Workflow Process (+4 more)
 
-### Community 29 - "destructive-foreground"
-Cohesion: 0.67
-Nodes (3): destructive-foreground, $type, $value
+### Community 29 - "Logo Design Reference"
+Cohesion: 0.18
+Nodes (12): Logo Design Reference, Logo Generation CLI and Search Tooling, Logo Design Workflow Process, Logo Quality and Scalability Evaluation Criteria, Logo AI Prompt Engineering Reference, Logo Prompt Structure and Negative Prompting, Prompt Modifiers for Scalability and Versatility, Style-Specific Logo Prompt Keywords (+4 more)
 
 ### Community 30 - "validate-tokens.cjs"
 Cohesion: 0.24
@@ -305,7 +296,7 @@ Nodes (11): extensions, formatReport(), fs, getFiles(), main(), parseArgs(), pat
 
 ### Community 31 - "ShadcnInstaller"
 Cohesion: 0.20
-Nodes (7): main(), Handle shadcn/ui component installation., ShadcnInstaller, Tests for shadcn_add.py, Test adding components that are already installed., Test listing installed components when they exist., Test getting installed components without config.
+Nodes (7): main(), Handle shadcn/ui component installation., ShadcnInstaller, Tests for shadcn_add.py, Test listing installed components when they exist., Test getting installed components without config., Test adding components with empty list.
 
 ### Community 32 - ".check_shadcn_config"
 Cohesion: 0.21
@@ -324,8 +315,8 @@ Cohesion: 0.18
 Nodes (8): args, fs, minimal, MINIMAL_TOKENS, path, projectRoot, tokensPath, wrapStyle
 
 ### Community 36 - "primitive"
-Cohesion: 0.17
-Nodes (11): dark, semantic, normal, slow, $type, $value, primitive, duration (+3 more)
+Cohesion: 0.18
+Nodes (11): fast, normal, slow, $type, $value, $type, $value, primitive (+3 more)
 
 ### Community 37 - "patch"
 Cohesion: 0.18
@@ -343,9 +334,9 @@ Nodes (10): detect_domain(), _load_csv(), Load CSV and return list of dicts, Cor
 Cohesion: 0.18
 Nodes (11): @google/gemini-cli, dependencies, @google/gemini-cli, react, react-dom, @supabase/supabase-js, sweetalert2, react (+3 more)
 
-### Community 41 - "foreground"
-Cohesion: 0.67
-Nodes (3): foreground, $type, $value
+### Community 41 - "Social Photos Design Guide"
+Cohesion: 0.22
+Nodes (10): Banner Sizes and Styles Reference, Banner 22 Art Direction Styles, Banner Production QA Checklist, Banner Platform Dimensions and Aspect Ratios, Banner Layout and Safe Zone Rules, Social Photos Design Guide, Headless Chrome / Puppeteer Screenshot Export Pipeline, Social Photo HTML/CSS Canvas Rendering (+2 more)
 
 ### Community 42 - "logo/generate.py"
 Cohesion: 0.29
@@ -375,13 +366,13 @@ Nodes (5): BM25, BM25 ranking algorithm for text search, Lowercase, split, remov
 Cohesion: 0.25
 Nodes (9): Evren House Web Entrypoint, Theme Initializer (kw_theme), Google Apps Script Serverless Backend, Kasir DB Rental POS System, Live Rental Tracking & Overtime Engine, Dynamic Partial Returns & Split Billing, QR Code Receipts & Thermal Printing, 6 AM Shift Rollover & Queue Management (+1 more)
 
-### Community 49 - "muted"
-Cohesion: 0.67
-Nodes (3): muted, $type, $value
+### Community 49 - "Design Skills Task Routing Matrix"
+Cohesion: 0.25
+Nodes (8): Design Routing Guide, Design Skills Task Routing Matrix, Multi-Skill Workflow Orchestration, Task Dispatching Rules and Heuristics, Icon Design Reference, SVG Icon Generation Engine (Gemini 3.1 Pro), 15 Icon Styles and 10 Categories Taxonomy, SVG Icon Standards (viewBox 24x24, currentColor)
 
-### Community 50 - "rentals/components/CalculateRentalModal.jsx"
-Cohesion: 0.21
-Nodes (14): SHIFT_ROLLOVER_HOUR, CalculateRentalModal(), calcOT(), calcOTCost(), calculateItemDetail(), calculatePartialReturn(), calculateRentalTotals(), formatOvertimeStrings() (+6 more)
+### Community 50 - "950"
+Cohesion: 0.67
+Nodes (3): $type, $value, 950
 
 ### Community 51 - "design_system.py"
 Cohesion: 0.12
@@ -399,13 +390,9 @@ Nodes (7): plugins, rules, react/only-export-components, react/rules-of-hooks, $
 Cohesion: 0.25
 Nodes (8): scripts, build, dev, lint, preview, test, test:coverage, test:watch
 
-### Community 55 - "muted-foreground"
-Cohesion: 0.67
-Nodes (3): muted-foreground, $type, $value
-
-### Community 56 - "primary"
-Cohesion: 0.67
-Nodes (3): primary, $type, $value
+### Community 55 - "Logo Color Psychology Reference"
+Cohesion: 0.29
+Nodes (7): CIP Style Guide, CIP Color Psychology and Material Finishes, CIP Design Style Archetypes, Logo Color Psychology Reference, Color Harmony Schemes (Analogous, Complementary, Triadic), Industry Color Palette Standards, Color Psychological Meanings and Emotional Associations
 
 ### Community 57 - "UX & Performance Improvements Implementation Plan"
 Cohesion: 0.47
@@ -419,17 +406,17 @@ Nodes (16): File Structure Map, Global Constraints, Native Kotlin POS (kasir-mob
 Cohesion: 0.40
 Nodes (4): name, private, type, version
 
-### Community 61 - "primary-foreground"
-Cohesion: 0.67
-Nodes (3): primary-foreground, $type, $value
+### Community 61 - "Token Architecture Reference"
+Cohesion: 0.50
+Nodes (4): Token Architecture Reference, Flat to Layered Token Migration Strategy, Token Naming Convention (--category-item-variant-state), W3C DTCG Token Specification
 
-### Community 62 - "Design Spec: Penambahan Barang Sewa Sesi Berjalan & Penggabungan/Pemisahan Bill Akhir"
-Cohesion: 0.12
-Nodes (15): 1. Problem Statement & Latar Belakang, 2.1 Skema Item dalam Sesi (`session.items`), 2.2 Normalisasi Data (`src/lib/utils.js`), 2.3 Pelestarian Metadata pada Partial Return (`src/features/rentals/domain/rentalCalculations.js`), 2. Arsitektur & Perubahan Data Model, 3.1 Kartu Sesi Aktif (`DashboardTab.jsx` / `LiveSessionTimer`), 3.2 Modal Tambah Item (`AddItemModal.jsx`), 3.3 Templat Struk Tambahan (`generateAdditionalReceiptHTML`) (+7 more)
+### Community 64 - "color"
+Cohesion: 0.20
+Nodes (15): $type, $value, 500, blue, green, red, white, yellow (+7 more)
 
-### Community 64 - "primary-hover"
+### Community 65 - "50"
 Cohesion: 0.67
-Nodes (3): primary-hover, $type, $value
+Nodes (4): $type, $value, 50, 50
 
 ### Community 66 - "fix-css.cjs"
 Cohesion: 0.50
@@ -439,65 +426,33 @@ Nodes (3): colorMaps, css, fs
 Cohesion: 1.00
 Nodes (3): Google Apps Script Backend Setup Guide, Google Sheets Database Schema, Apps Script Web App Deployment
 
-### Community 73 - "ring"
-Cohesion: 0.67
-Nodes (3): ring, $type, $value
+### Community 75 - "$type"
+Cohesion: 0.53
+Nodes (6): $type, $value, 600, 600, 600, 600
 
-### Community 74 - "secondary"
-Cohesion: 0.67
-Nodes (3): secondary, $type, $value
-
-### Community 75 - "secondary-foreground"
-Cohesion: 0.67
-Nodes (3): secondary-foreground, $type, $value
-
-### Community 76 - "Global Constraints"
-Cohesion: 0.18
-Nodes (10): Global Constraints, Penambahan Barang Sewa Sesi Berjalan & Penggabungan/Pemisahan Bill Akhir Implementation Plan, Self-Review Checklist, Task 1: Data Normalization & Schema Extension (`src/lib/utils.js`), Task 2: Rental Domain Calculations (`src/features/rentals/domain/rentalCalculations.js`), Task 3: Additional Order Receipt Template & Printer Hook (`src/features/receipts/`), Task 4: Rental Action Hook Extension (`useRentalActions.js`), Task 5: Add Item Modal Component (`AddItemModal.jsx`) (+2 more)
-
-### Community 78 - "fast"
-Cohesion: 0.67
-Nodes (3): fast, $type, $value
-
-### Community 79 - "Logo Design Reference"
-Cohesion: 0.18
-Nodes (12): Logo Design Reference, Logo Generation CLI and Search Tooling, Logo Design Workflow Process, Logo Quality and Scalability Evaluation Criteria, Logo AI Prompt Engineering Reference, Logo Prompt Structure and Negative Prompting, Prompt Modifiers for Scalability and Versatility, Style-Specific Logo Prompt Keywords (+4 more)
-
-### Community 101 - "Social Photos Design Guide"
-Cohesion: 0.22
-Nodes (10): Banner Sizes and Styles Reference, Banner 22 Art Direction Styles, Banner Production QA Checklist, Banner Platform Dimensions and Aspect Ratios, Banner Layout and Safe Zone Rules, Social Photos Design Guide, Headless Chrome / Puppeteer Screenshot Export Pipeline, Social Photo HTML/CSS Canvas Rendering (+2 more)
-
-### Community 128 - "receiptTemplates.js"
+### Community 118 - "$type"
 Cohesion: 0.60
-Nodes (7): dateStr(), generateAdditionalReceiptHTML(), generateFinishReceiptHTML(), generateStartReceiptHTML(), getTrackUrl(), timeStr(), useReceiptPrinter()
-
-### Community 133 - "Design Skills Task Routing Matrix"
-Cohesion: 0.17
-Nodes (12): Design Routing Guide, Design Skills Task Routing Matrix, Multi-Skill Workflow Orchestration, Task Dispatching Rules and Heuristics, Icon Design Reference, SVG Icon Generation Engine (Gemini 3.1 Pro), 15 Icon Styles and 10 Categories Taxonomy, SVG Icon Standards (viewBox 24x24, currentColor) (+4 more)
-
-### Community 134 - "Logo Color Psychology Reference"
-Cohesion: 0.29
-Nodes (7): CIP Style Guide, CIP Color Psychology and Material Finishes, CIP Design Style Archetypes, Logo Color Psychology Reference, Color Harmony Schemes (Analogous, Complementary, Triadic), Industry Color Palette Standards, Color Psychological Meanings and Emotional Associations
+Nodes (5): $type, $value, 700, 700, 700
 
 ## Knowledge Gaps
-- **302 isolated node(s):** `fs`, `path`, `fs`, `path`, `fs` (+297 more)
+- **283 isolated node(s):** `fs`, `path`, `fs`, `path`, `fs` (+278 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **45 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `primitive` connect `primitive` to `gray`, `spacing`, `fontSize`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **Why does `component` connect `button` to `primitive`?**
+- **Why does `primitive` connect `primitive` to `color`, `spacing`, `color`, `fontSize`?**
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
+- **Why does `component` connect `button` to `color`?**
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **Why does `color` connect `color` to `gray`, `primitive`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **Why does `color` connect `gray` to `primitive`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `TailwindConfigGenerator` (e.g. with `TestGeneratedConfigIsValidJs` and `TestTailwindConfigGenerator`) actually correct?**
   _`TailwindConfigGenerator` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `fs`, `path`, `fs` to the rest of the system?**
-  _302 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _283 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `App.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.053904873752201994 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.051309574924860456 - nodes in this community are weakly interconnected._
 - **Should `gray` be split into smaller, more focused modules?**
-  _Cohesion score 0.05370101596516691 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
