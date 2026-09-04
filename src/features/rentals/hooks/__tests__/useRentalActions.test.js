@@ -212,4 +212,54 @@ describe('useRentalActions Hook Unit Tests', () => {
       })
     );
   });
+
+  it('addItemsToRental appends items with individual startTime and payAwal, calling editSession', async () => {
+    const setActiveSessions = vi.fn();
+    const onAdditionalAdded = vi.fn();
+
+    api.editSession.mockResolvedValue({ success: true });
+
+    const mockSession = {
+      id: 's-test',
+      queueNo: 1,
+      nama: 'Budi',
+      startTime: 1000000,
+      payAwal: 'cash',
+      items: [{ code: 'STROLLER', qty: 1, startTime: 1000000, payAwal: 'cash', priceBase: 40000 }]
+    };
+
+    const { result } = renderHook(() =>
+      useRentalActions({
+        setActiveSessions,
+        onAdditionalAdded
+      })
+    );
+
+    const newItems = [{ code: 'SCOOTER', qty: 1, priceBase: 30000 }];
+    let res;
+    await act(async () => {
+      res = await result.current.addItemsToRental(mockSession, newItems, 'qris');
+    });
+
+    expect(res.success).toBe(true);
+    expect(api.editSession).toHaveBeenCalledWith(
+      expect.objectContaining({
+        id: 's-test',
+        items: expect.arrayContaining([
+          expect.objectContaining({ code: 'STROLLER', qty: 1 }),
+          expect.objectContaining({ code: 'SCOOTER', qty: 1, payAwal: 'qris' })
+        ])
+      })
+    );
+    expect(setActiveSessions).toHaveBeenCalledTimes(1);
+    expect(swal.swalSuccess).toHaveBeenCalledWith('Item Tambahan Berhasil Ditambahkan!');
+    expect(onAdditionalAdded).toHaveBeenCalledWith(
+      expect.objectContaining({ id: 's-test' }),
+      expect.arrayContaining([
+        expect.objectContaining({ code: 'SCOOTER', qty: 1, payAwal: 'qris' })
+      ]),
+      'qris'
+    );
+  });
 });
+

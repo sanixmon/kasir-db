@@ -133,9 +133,54 @@ export function useRentalActions(options = {}) {
     }
   };
 
+  const addItemsToRental = async (session, newItems = [], additionalPayAwal = 'cash') => {
+    if (!session || !session.id) return { success: false, error: 'Sesi tidak valid' };
+    if (!Array.isArray(newItems) || newItems.length === 0) {
+      return { success: false, error: 'Item tambahan kosong' };
+    }
+
+    const now = Date.now();
+    const enrichedNewItems = newItems.map(item => ({
+      code: item.code,
+      qty: Number(item.qty || 1),
+      startTime: now,
+      payAwal: String(additionalPayAwal || 'cash').toLowerCase(),
+      priceBase: Number(item.priceBase || 0)
+    }));
+
+    const existingItems = Array.isArray(session.items) ? session.items : [];
+    const mergedItems = [...existingItems, ...enrichedNewItems];
+
+    const updatedSession = {
+      ...session,
+      items: mergedItems
+    };
+
+    try {
+      await editSession(updatedSession);
+      const normalizedSess = normalizeSession(updatedSession);
+      if (typeof setActiveSessions === 'function') {
+        setActiveSessions((prev) =>
+          prev.map((s) => (s.id === session.id ? normalizedSess : s))
+        );
+      }
+      swalSuccess('Item Tambahan Berhasil Ditambahkan!');
+      if (typeof options.onAdditionalAdded === 'function') {
+        options.onAdditionalAdded(normalizedSess, enrichedNewItems, additionalPayAwal);
+      }
+      return { success: true, session: normalizedSess };
+    } catch (e) {
+      console.error('Failed to add items to rental:', e);
+      swalError('Gagal Tambah Item', 'Periksa koneksi ke server.');
+      return { success: false, error: e };
+    }
+  };
+
   return {
     startRental,
     editRental,
-    claimRental
+    claimRental,
+    addItemsToRental
   };
 }
+
