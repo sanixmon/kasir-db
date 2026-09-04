@@ -27,27 +27,48 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
     setElapsed(el);
     setElapsedMin(elMin);
 
+    const now = Date.now();
     const initial = (Array.isArray(session?.items) ? session.items : []).map(it => {
       if (!it) return null;
       const def = ITEMS.find(item => item.code === it.code) || { priceHour: 0, priceOT30: 0, priceOT60: 0 };
-      return calculateItemDetail(it, def, elMin);
+      const itemStart = (it.startTime && Number(it.startTime) > 1577836800000)
+        ? Number(it.startTime)
+        : safeStart;
+      const itemElSec = Math.max(0, Math.floor((now - itemStart) / 1000));
+      const itemElMin = itemElSec / 60;
+      return {
+        ...calculateItemDetail(it, def, itemElMin),
+        itemStart,
+        itemElapsedMin: itemElMin
+      };
     }).filter(Boolean);
     setItemsCalc(initial);
   }, [session]);
 
   const handleReturnQtyChange = (idx, delta) => {
+    const now = Date.now();
     setItemsCalc(prev => prev.map((it, i) => {
       if (i !== idx) return it;
       const newReturnQty = Math.max(0, Math.min(it.qty || 1, (it.returnQty || 1) + delta));
-      return calculateItemDetail(it, it.def, elapsedMin, newReturnQty);
+      const itemStart = (it.itemStart && Number(it.itemStart) > 1577836800000)
+        ? Number(it.itemStart)
+        : safeStart;
+      const itemElSec = Math.max(0, Math.floor((now - itemStart) / 1000));
+      const itemElMin = itemElSec / 60;
+      return {
+        ...calculateItemDetail(it, it.def, itemElMin, newReturnQty),
+        itemStart,
+        itemElapsedMin: itemElMin
+      };
     }));
   };
 
   const { baseSum, otSum, grandOT, totalReturnQty } = calculateRentalTotals(itemsCalc);
 
-  const isOT = itemsCalc.some(it => it.returnQty > 0 && Math.floor(elapsedMin - it.limitMin) >= 11);
-  const maxOver = Math.max(...itemsCalc.map(it => {
-    const o = elapsedMin - it.limitMin;
+  const isOT = itemsCalc.some(it => it.returnQty > 0 && Math.floor((it.itemElapsedMin ?? elapsedMin) - it.limitMin) >= 11);
+  const maxOver = Math.max(0, ...itemsCalc.map(it => {
+    const curElMin = it.itemElapsedMin ?? elapsedMin;
+    const o = curElMin - it.limitMin;
     return it.returnQty > 0 && Math.floor(o) >= 11 ? o : 0;
   }));
 
@@ -115,7 +136,8 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
               
               <div className="mb-3">
                 {itemsCalc.map((it, idx) => {
-                  const overMin = elapsedMin - it.limitMin;
+                  const curElMin = it.itemElapsedMin ?? elapsedMin;
+                  const overMin = curElMin - it.limitMin;
                   const isReturned = it.returnQty > 0;
                   return (
                     <div className="ot-item-row" key={it.code + idx} style={{ opacity: isReturned ? 1 : 0.45 }}>
