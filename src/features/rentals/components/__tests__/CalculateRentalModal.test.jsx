@@ -133,4 +133,41 @@ describe('CalculateRentalModal Component Tests', () => {
     expect(paymentData.grand).toBe(20000);
     expect(paymentData.itemsCalc[0].returnQty).toBe(1);
   });
+
+  it('calls onCompleteOnTime directly when rental is returned on time (0 overtime)', () => {
+    const now = Date.now();
+    const session = {
+      id: 's-789',
+      queueNo: 8,
+      nama: 'Diana',
+      startTime: now - (40 * 60 * 1000), // 40m elapsed: within 60m normal duration
+      items: [
+        { code: 'STROLLER', qty: 1 }
+      ]
+    };
+
+    const onProceedPayment = vi.fn();
+    const onCompleteOnTime = vi.fn();
+
+    render(
+      <CalculateRentalModal
+        session={session}
+        onClose={vi.fn()}
+        onProceedPayment={onProceedPayment}
+        onCompleteOnTime={onCompleteOnTime}
+      />
+    );
+
+    // Button should say "Selesai (Tepat Waktu)"
+    const completeBtn = screen.getByRole('button', { name: /Selesai \(Tepat Waktu\)/i });
+    expect(completeBtn).toBeInTheDocument();
+
+    fireEvent.click(completeBtn);
+
+    expect(onCompleteOnTime).toHaveBeenCalledTimes(1);
+    expect(onProceedPayment).not.toHaveBeenCalled();
+    const data = onCompleteOnTime.mock.calls[0][0];
+    expect(data.ot).toBe(0);
+    expect(data.grand).toBe(0);
+  });
 });

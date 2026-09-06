@@ -389,6 +389,21 @@ function App() {
             setActiveCheckoutSession(null);
             setActivePaymentData(data);
           }}
+          onCompleteOnTime={async (data) => {
+            setActiveCheckoutSession(null);
+            try {
+              const res = await handleClaimRentalAction(data, 0, 0);
+              if (res && !res.success) {
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Gagal Menyelesaikan Sewa',
+                  text: res.error || 'Terjadi kesalahan pada server'
+                });
+              }
+            } catch (e) {
+              console.error('Failed to complete rental on-time:', e);
+            }
+          }}
           currentUserRole={currentUserRole}
         />
       )}

@@ -7,7 +7,7 @@ import {
   formatOvertimeStrings
 } from '../domain/rentalCalculations';
 
-function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserRole }) {
+function CalculateRentalModal({ session, onClose, onProceedPayment, onCompleteOnTime, currentUserRole }) {
   const isAdmin = currentUserRole === 'admin';
   // Guard: if startTime is 0 / epoch 1970 (backend NaN bug), default to now
   // Only clamp if before year 2020 — old-but-valid sessions are still valid
@@ -90,7 +90,11 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
       elapsed,
       endTime: Date.now()
     };
-    onProceedPayment(calculatedData);
+    if (grandOT === 0 && onCompleteOnTime) {
+      onCompleteOnTime(calculatedData);
+    } else {
+      onProceedPayment(calculatedData);
+    }
   };
 
   return (
@@ -230,7 +234,15 @@ function CalculateRentalModal({ session, onClose, onProceedPayment, currentUserR
                   onClick={handleProceed}
                   disabled={!canProceed || isSubmitting}
                 >
-                  <i className="bi bi-arrow-right-circle-fill me-2"></i>Lanjut Pembayaran
+                  {grandOT === 0 && onCompleteOnTime ? (
+                    <>
+                      <i className="bi bi-check-circle-fill me-2"></i>Selesai (Tepat Waktu)
+                    </>
+                  ) : (
+                    <>
+                      <i className="bi bi-arrow-right-circle-fill me-2"></i>Lanjut Pembayaran
+                    </>
+                  )}
                 </button>
               </div>
             </div>
