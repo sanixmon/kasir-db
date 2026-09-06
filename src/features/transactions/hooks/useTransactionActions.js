@@ -47,7 +47,10 @@ export function useTransactionActions(options = {}) {
     }
 
     try {
-      await deleteTxn({ id: txnObj.id, no: txnObj.no });
+      const delRes = await deleteTxn({ id: txnObj.id, no: txnObj.no });
+      if (delRes && (delRes.error || delRes.success === false)) {
+        throw new Error(delRes.error || 'Gagal menghapus transaksi');
+      }
       await addDeletionLog(logEntry);
       return { success: true, logEntry };
     } catch (e) {
@@ -84,7 +87,10 @@ export function useTransactionActions(options = {}) {
     }
 
     try {
-      await clearAllTxns();
+      const clearRes = await clearAllTxns();
+      if (clearRes && (clearRes.error || clearRes.success === false)) {
+        throw new Error(clearRes.error || 'Gagal membersihkan riwayat');
+      }
       return { success: true };
     } catch (e) {
       console.error('Failed to clear history on server:', e);

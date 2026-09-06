@@ -159,6 +159,52 @@ describe('useRentalActions Hook Unit Tests', () => {
     );
   });
 
+  it('claimRental assigns current shift date (todayStr) to transaction even if session started on previous shift date', async () => {
+    const setActiveSessions = vi.fn();
+    const setTransactions = vi.fn();
+    api.claimSession.mockResolvedValue({
+      success: true,
+      transaction: { id: 't-cross', no: 15 }
+    });
+
+    const { result } = renderHook(() =>
+      useRentalActions({
+        setActiveSessions,
+        setTransactions,
+        todayStr: () => '2026-08-26'
+      })
+    );
+
+    const activePaymentData = {
+      session: {
+        id: 's-cross1',
+        queueNo: 8,
+        nama: 'Caca',
+        tanggal: '2026-08-25',
+        startTime: 1700000000000,
+        payAwal: 'cash',
+        items: [{ code: 'SA', qty: 1 }]
+      },
+      itemsCalc: [{ code: 'SA', returnQty: 1, baseCost: 35000, otCost: 0 }],
+      base: 35000,
+      ot: 0,
+      tol: 0,
+      grand: 0,
+      endTime: 1700003600000
+    };
+
+    await act(async () => {
+      await result.current.claimRental(activePaymentData, 35000, 0);
+    });
+
+    expect(api.claimSession).toHaveBeenCalledWith(
+      expect.objectContaining({
+        sessionId: 's-cross1',
+        tanggal: '2026-08-26'
+      })
+    );
+  });
+
   it('claimRental (partial return) updates active session with leftover items', async () => {
     const setActiveSessions = vi.fn();
     const setTransactions = vi.fn();
@@ -292,5 +338,66 @@ describe('useRentalActions Hook Unit Tests', () => {
     expect(setActiveSessions).not.toHaveBeenCalled();
     expect(onAdditionalAdded).not.toHaveBeenCalled();
   });
+
+  it('editRental handles API logical failure (success: false), calling swalError without updating sessions or calling onEditSaved', async () => {
+    const setActiveSessions = vi.fn();
+    const onEditSaved = vi.fn();
+    api.editSession.mockResolvedValue({ success: false, error: 'Database locked' });
+
+    const { result } = renderHook(() =>
+      useRentalActions({
+        setActiveSessions,
+        onEditSaved
+      })
+    );
+
+    const updatedSession = { id: 's-edit1', nama: 'Budi' };
+    let res;
+    await act(async () => {
+      res = await result.current.editRental(updatedSession);
+    });
+
+    expect(res.success).toBe(false);
+    expect(swal.swalError).toHaveBeenCalledWith('Gagal Memperbarui', 'Periksa koneksi ke server.');
+    expect(setActiveSessions).not.toHaveBeenCalled();
+    expect(onEditSaved).not.toHaveBeenCalled();
+  });
+
+  it('claimRental handles API logical failure (success: false), calling swalError without updating transactions or calling onPaymentFinalized', async () => {
+    const setActiveSessions = vi.fn();
+    const setTransactions = vi.fn();
+    const onPaymentFinalized = vi.fn();
+    api.claimSession.mockResolvedValue({ success: false, error: 'Session already claimed' });
+
+    const { result } = renderHook(() =>
+      useRentalActions({
+        setActiveSessions,
+        setTransactions,
+        onPaymentFinalized
+      })
+    );
+
+    const activePaymentData = {
+      session: { id: 's-fail1', nama: 'Fail' },
+      itemsCalc: [],
+      base: 0,
+      ot: 0,
+      tol: 0,
+      grand: 0,
+      endTime: 1700000000000
+    };
+
+    let res;
+    await act(async () => {
+      res = await result.current.claimRental(activePaymentData, 0, 0);
+    });
+
+    expect(res.success).toBe(false);
+    expect(swal.swalError).toHaveBeenCalledWith('Gagal Proses Pembayaran', 'Periksa koneksi ke server.');
+    expect(setActiveSessions).not.toHaveBeenCalled();
+    expect(setTransactions).not.toHaveBeenCalled();
+    expect(onPaymentFinalized).not.toHaveBeenCalled();
+  });
 });
+
 

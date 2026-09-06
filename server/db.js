@@ -524,9 +524,10 @@ export function verifyAdmin(payload) {
 export function trackSession(payload) {
   const id = String(payload?.id || '').trim();
   if (!id) return { error: 'ID sesi diperlukan' };
-  const sess = db.prepare('SELECT * FROM active_sessions WHERE id = ?').get(id);
+  const altId = id.startsWith('s-') ? `t-${id.slice(2)}` : (id.startsWith('t-') ? `s-${id.slice(2)}` : id);
+  const sess = db.prepare('SELECT * FROM active_sessions WHERE id = ? OR id = ?').get(id, altId);
   if (sess) return { session: formatSessionFromDb(sess) };
-  const txn = db.prepare('SELECT * FROM transactions WHERE id = ?').get(id);
+  const txn = db.prepare('SELECT * FROM transactions WHERE id = ? OR id = ?').get(id, altId);
   if (txn) return { transaction: formatTransactionFromDb(txn) };
   return { error: 'Sesi tidak ditemukan atau sudah dihapus.' };
 }

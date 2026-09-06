@@ -54,7 +54,10 @@ export function useRentalActions(options = {}) {
 
   const editRental = async (updatedSession) => {
     try {
-      await editSession(updatedSession);
+      const res = await editSession(updatedSession);
+      if (res && (res.error || res.success === false)) {
+        throw new Error(res.error || 'Gagal memperbarui sesi');
+      }
       if (typeof setActiveSessions === 'function') {
         setActiveSessions((prev) =>
           prev.map((s) => (s.id === updatedSession.id ? normalizeSession(updatedSession) : s))
@@ -83,7 +86,7 @@ export function useRentalActions(options = {}) {
       remainingItems,
       queueNo: session.queueNo || 0,
       nama: session.nama,
-      tanggal: session.tanggal || todayStr(),
+      tanggal: todayStr(),
       startTime: session.startTime,
       endTime,
       items: itemStr,
@@ -102,7 +105,7 @@ export function useRentalActions(options = {}) {
 
     try {
       const res = await claimSession(claimPayload);
-      if (res && !res.error) {
+      if (res && !res.error && res.success !== false) {
         const newTxn = normalizeTxn(res.transaction || { ...claimPayload, id: `t-${session.id}` });
         if (typeof setTransactions === 'function') {
           setTransactions((prev) =>
@@ -158,7 +161,10 @@ export function useRentalActions(options = {}) {
     };
 
     try {
-      await editSession(updatedSession);
+      const res = await editSession(updatedSession);
+      if (res && (res.error || res.success === false)) {
+        throw new Error(res.error || 'Gagal menambahkan item ke sesi');
+      }
       const normalizedSess = normalizeSession(updatedSession);
       if (typeof setActiveSessions === 'function') {
         setActiveSessions((prev) =>

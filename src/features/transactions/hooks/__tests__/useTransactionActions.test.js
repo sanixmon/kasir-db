@@ -105,6 +105,32 @@ describe('useTransactionActions Hook Unit Tests', () => {
       expect(loadData).toHaveBeenCalledTimes(1);
       expect(api.clearEscalationToken).toHaveBeenCalledTimes(1);
     });
+
+    it('rolls back via loadData when API delete returns logical failure (success: false)', async () => {
+      swal.swalConfirm.mockResolvedValue(true);
+      api.deleteTxn.mockResolvedValue({ success: false, error: 'Unauthorized' });
+
+      const setTransactions = vi.fn();
+      const setDeletionLogs = vi.fn();
+      const loadData = vi.fn();
+
+      const { result } = renderHook(() =>
+        useTransactionActions({
+          setTransactions,
+          setDeletionLogs,
+          loadData
+        })
+      );
+
+      let res;
+      await act(async () => {
+        res = await result.current.deleteTransaction({ id: 't-1', no: 1 });
+      });
+
+      expect(res.success).toBe(false);
+      expect(loadData).toHaveBeenCalledTimes(1);
+      expect(api.clearEscalationToken).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe('clearHistory', () => {

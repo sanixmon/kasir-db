@@ -194,9 +194,12 @@ function App() {
   const handleFinalizePayment = async (cash, qris) => {
     if (!activePaymentData) return;
     try {
-      await handleClaimRentalAction(activePaymentData, cash, qris);
-    } finally {
-      setActivePaymentData(null);
+      const res = await handleClaimRentalAction(activePaymentData, cash, qris);
+      if (res && res.success) {
+        setActivePaymentData(null);
+      }
+    } catch (e) {
+      console.error('Failed to finalize payment:', e);
     }
   };
 
