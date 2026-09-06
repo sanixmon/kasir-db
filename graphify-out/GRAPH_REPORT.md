@@ -1,16 +1,16 @@
 # Graph Report - kasir-db  (2026-09-06)
 
 ## Corpus Check
-- 196 files · ~128,527 words
+- 196 files · ~128,557 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1416 nodes · 2256 edges · 131 communities (82 shown, 49 thin omitted)
+- 1416 nodes · 2256 edges · 132 communities (83 shown, 49 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 102 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `524172fa`
+- Built from commit: `f8943693`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -135,6 +135,7 @@
 - .test_get_installed_components_with_files
 - auth/components/RoleSelection.jsx
 - .test_init_default_project_root
+- format_ascii_box
 - react
 - Token Architecture Reference
 - Logo Color Psychology Reference
@@ -182,7 +183,7 @@
 - **Shadcn & Tailwind UI Styling Framework** — agents_skills_ui_styling_skill, agents_skills_ui_styling_references_shadcn_components, agents_skills_ui_styling_references_shadcn_theming, agents_skills_ui_styling_references_tailwind_customization [INFERRED 0.85]
 - **Google Sheets POS Backend Integration Flow** — docs_google_apps_script_readme, docs_google_apps_script_readme_sheet_schema, docs_google_apps_script_readme_webapp_deployment [INFERRED 0.95]
 
-## Communities (131 total, 49 thin omitted)
+## Communities (132 total, 49 thin omitted)
 
 ### Community 0 - "api.js"
 Cohesion: 0.14
@@ -261,16 +262,16 @@ Cohesion: 0.15
 Nodes (19): _e(), generate_chart_slide(), generate_cta_slide(), generate_deck(), generate_metrics_slide(), generate_problem_slide(), generate_solution_slide(), generate_testimonial_slide() (+11 more)
 
 ### Community 19 - "DesignSystemGenerator"
-Cohesion: 0.16
-Nodes (9): DesignSystemGenerator, Find matching reasoning rule for a category., Apply reasoning rules to search results., Select best matching result based on priority keywords., Extract results list from search result dict., Generate complete design system recommendation. variance/motion/density are…, Generates design system recommendations from aggregated searches., Load reasoning rules from CSV. (+1 more)
+Cohesion: 0.14
+Nodes (11): DesignSystemGenerator, Find matching reasoning rule for a category., Apply reasoning rules to search results., Select best matching result based on priority keywords., Extract results list from search result dict., Generate complete design system recommendation. variance/motion/density are…, Bucket a 1-10 dial value into its tier config. Returns None if value is None., Generates design system recommendations from aggregated searches. (+3 more)
 
 ### Community 20 - "fetch-background.py"
 Cohesion: 0.17
 Nodes (17): generate_css_for_background(), get_background_image(), get_curated_images(), get_overlay_css(), get_pexels_search_url(), load_backgrounds_config(), load_brand_colors(), main() (+9 more)
 
 ### Community 21 - "generate_design_system"
-Cohesion: 0.31
-Nodes (9): generate_design_system(), persist_design_system(), Main entry point for design system generation. Args: query: Search query (e.g.,…, Slugify a name into a single safe path segment. Only [a-z0-9_-] survives; every…, Persist design system to design-system/<project>/ folder using Master +…, safe_slug(), format_output(), main() (+1 more)
+Cohesion: 0.32
+Nodes (7): format_markdown(), generate_design_system(), Format design system as markdown., Main entry point for design system generation. Args: query: Search query (e.g.,…, format_output(), main(), Format results for Claude consumption (token-optimized)
 
 ### Community 22 - "icon/generate.py"
 Cohesion: 0.20
@@ -401,8 +402,8 @@ Cohesion: 0.25
 Nodes (8): scripts, build, dev, lint, preview, test, test:coverage, test:watch
 
 ### Community 55 - "design_system.py"
-Cohesion: 0.12
-Nodes (20): ansi_ljust(), _detect_page_type(), format_ascii_box(), format_markdown(), format_master_md(), format_page_override_md(), _generate_intelligent_overrides(), hex_to_ansi() (+12 more)
+Cohesion: 0.22
+Nodes (12): _detect_page_type(), format_master_md(), format_page_override_md(), _generate_intelligent_overrides(), persist_design_system(), Format a page-specific override file with intelligent AI-generated content., Generate intelligent overrides based on page type using layered search. Uses…, Detect page type from context and search results. (+4 more)
 
 ### Community 56 - "shadow"
 Cohesion: 0.47
@@ -475,6 +476,10 @@ Nodes (10): Banner Sizes and Styles Reference, Banner 22 Art Direction Styles, B
 ### Community 122 - "default"
 Cohesion: 0.67
 Nodes (4): $type, $value, default, default
+
+### Community 126 - "format_ascii_box"
+Cohesion: 0.25
+Nodes (8): ansi_ljust(), format_ascii_box(), hex_to_ansi(), Convert hex color to ANSI True Color swatch (██) with fallback., Like str.ljust but accounts for zero-width ANSI escape sequences., Create a Unicode section separator: ├─── NAME ───...┤, Format design system as Unicode box with ANSI color swatches., section_header()
 
 ### Community 128 - "react"
 Cohesion: 0.15

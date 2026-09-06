@@ -246,9 +246,9 @@
     "semantic_hash": "6eb608dec688b00864c099af09e4dbd6"
   },
   "src/App.jsx": {
-    "mtime": 1788678819.8692653,
-    "seen": 1788678933.6181743,
-    "ast_hash": "fa51995e62075e282daba2b836164b2b",
+    "mtime": 1788679469.530358,
+    "seen": 1788679591.3471906,
+    "ast_hash": "1d615092eadf5bae59f291ceac6340bc",
     "semantic_hash": ""
   },
   "src/__tests__/AppRouting.test.jsx": {
@@ -414,9 +414,9 @@
     "semantic_hash": "3ebd32ef7a5073d3ea3ee37c1647dc3a"
   },
   "src/components/PaymentModal.jsx": {
-    "mtime": 1788565045.4984,
-    "seen": 1788565218.966289,
-    "ast_hash": "9702ce0cb36ba472be1f03d5d88c1ff2",
+    "mtime": 1788679480.3863604,
+    "seen": 1788679591.3507307,
+    "ast_hash": "ebb5f58ccdff67f9c20b83d0b66b4e40",
     "semantic_hash": ""
   },
   "src/components/QRCodeModal.jsx": {
@@ -990,9 +990,9 @@
     "semantic_hash": "8a9e5da49a042e9a180b664fb11f7794"
   },
   "index.html": {
-    "mtime": 1788565210.3683987,
-    "seen": 1788565218.9734156,
-    "ast_hash": "fedc41eff6c8c168042640dead6232ef",
+    "mtime": 1788679578.8463814,
+    "seen": 1788679591.3661706,
+    "ast_hash": "a1d290da5b88183e1e1d53e52eb4342d",
     "semantic_hash": ""
   },
   "pnpm-workspace.yaml": {
@@ -1104,9 +1104,9 @@
     "semantic_hash": ""
   },
   "src/features/rentals/components/CalculateRentalModal.jsx": {
-    "mtime": 1788565097.0133996,
-    "seen": 1788565218.9672706,
-    "ast_hash": "fdf8deb9fcaf5895298715a81d13a843",
+    "mtime": 1788679464.962357,
+    "seen": 1788679591.354012,
+    "ast_hash": "672c5446490259a954a6b88a8495f27f",
     "semantic_hash": ""
   },
   "src/features/rentals/components/EditActiveSessionModal.jsx": {
@@ -1194,9 +1194,9 @@
     "semantic_hash": ""
   },
   "src/features/rentals/components/__tests__/CalculateRentalModal.test.jsx": {
-    "mtime": 1788525894.996188,
-    "seen": 1788526036.4225261,
-    "ast_hash": "4a26971ce7581ee6a457302d3ef643c4",
+    "mtime": 1788679542.7683737,
+    "seen": 1788679591.3541484,
+    "ast_hash": "bf36e4c157a8b078168735ea5497833b",
     "semantic_hash": ""
   },
   "src/components/__tests__/DashboardTab.test.jsx": {
@@ -1227,6 +1227,12 @@
     "mtime": 1788651971.081785,
     "seen": 1788652007.5571856,
     "ast_hash": "c0f161ae191fd7b3f81e418b784daaf6",
+    "semantic_hash": ""
+  },
+  "src/components/__tests__/PaymentModal.test.jsx": {
+    "mtime": 1788679569.6503794,
+    "seen": 1788679591.351111,
+    "ast_hash": "05e36c652aa56c88aa43e22a182b03d0",
     "semantic_hash": ""
   }
 }

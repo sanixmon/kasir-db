@@ -1,16 +1,16 @@
 # Graph Report - kasir-db  (2026-09-06)
 
 ## Corpus Check
-- 195 files · ~128,107 words
+- 196 files · ~128,527 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1415 nodes · 2253 edges · 128 communities (81 shown, 47 thin omitted)
+- 1416 nodes · 2256 edges · 131 communities (82 shown, 49 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 102 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `573fd4d2`
+- Built from commit: `524172fa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,7 +32,7 @@
 - BM25
 - TailwindConfigGenerator
 - Slides Master Reference
-- getShiftDate
+- transactions/components/HistoryTab.jsx
 - generate-slide.py
 - DesignSystemGenerator
 - fetch-background.py
@@ -73,12 +73,12 @@
 - design_system.py
 - shadow
 - UX & Performance Improvements Implementation Plan
-- react
+- ErrorBoundary
 - Tasks
 - package.json
 - Rental POS (Kasir DB)
 - Design Spec: Penambahan Barang Sewa Sesi Berjalan & Penggabungan/Pemisahan Bill Akhir
-- .test_add_components_no_components
+- receiptTemplates.js
 - lg
 - @vitest/coverage-v8
 - fix-css.cjs
@@ -89,7 +89,7 @@
 - Google Apps Script Backend Setup Guide
 - Graphify Query & AST Update Workflow
 - Design Skills Task Routing Matrix
-- xl
+- shift.js
 - md
 - Global Constraints
 - .test_init_dry_run
@@ -131,8 +131,11 @@
 - 0003-tanggal-transaksi-mengikuti-shift-pelunasan.md
 - @testing-library/jest-dom
 - .test_check_shadcn_config_exists
+- default
 - .test_get_installed_components_with_files
-- fmtRp
+- auth/components/RoleSelection.jsx
+- .test_init_default_project_root
+- react
 - Token Architecture Reference
 - Logo Color Psychology Reference
 - .test_get_installed_components_empty
@@ -141,8 +144,8 @@
 ## God Nodes (most connected - your core abstractions)
 1. `TailwindConfigGenerator` - 58 edges
 2. `TestTailwindConfigGenerator` - 35 edges
-3. `ShadcnInstaller` - 34 edges
-4. `react` - 34 edges
+3. `react` - 35 edges
+4. `ShadcnInstaller` - 34 edges
 5. `TestShadcnInstaller` - 26 edges
 6. `fmtRp()` - 26 edges
 7. `getShiftDate()` - 23 edges
@@ -179,11 +182,11 @@
 - **Shadcn & Tailwind UI Styling Framework** — agents_skills_ui_styling_skill, agents_skills_ui_styling_references_shadcn_components, agents_skills_ui_styling_references_shadcn_theming, agents_skills_ui_styling_references_tailwind_customization [INFERRED 0.85]
 - **Google Sheets POS Backend Integration Flow** — docs_google_apps_script_readme, docs_google_apps_script_readme_sheet_schema, docs_google_apps_script_readme_webapp_deployment [INFERRED 0.95]
 
-## Communities (128 total, 47 thin omitted)
+## Communities (131 total, 49 thin omitted)
 
 ### Community 0 - "api.js"
 Cohesion: 0.14
-Nodes (25): addDeletionLog(), addSession(), apiCall(), authHeaders(), authToken, claimSession(), clearAllTxns(), clearEscalationToken() (+17 more)
+Nodes (26): addDeletionLog(), addSession(), apiCall(), authHeaders(), authToken, backupDatabase(), changeAdminPassword(), claimSession() (+18 more)
 
 ### Community 1 - "gray"
 Cohesion: 0.05
@@ -195,15 +198,15 @@ Nodes (42): BM25, detect_domain(), get_cip_brief(), _load_csv(), Load CSV and re
 
 ### Community 3 - "color"
 Cohesion: 0.04
-Nodes (48): $type, $value, background, destructive, destructive-foreground, foreground, muted, muted-foreground (+40 more)
+Nodes (46): $type, $value, background, destructive, destructive-foreground, foreground, muted, muted-foreground (+38 more)
 
 ### Community 4 - "UI Styling Skill"
 Cohesion: 0.05
 Nodes (48): Slide Copywriting Formulas, Attention-Interest-Desire-Action (AIDA) Formula, Before-After-Bridge (BAB) Formula, Slide Headline Rules, Problem-Agitate-Solve (PAS) Formula, Slides Creation Guide, HTML Slide Template Structure, Slide CSS Variable Tokens (+40 more)
 
 ### Community 5 - "Color Semantic Tokens (Primary, Muted, Destructive)"
-Cohesion: 0.09
-Nodes (47): Brand Identity Update Workflow, Brand Guidelines to Design Tokens Sync, Three-Layer Token Architecture (Primitive -> Semantic -> Component), Component Specifications Reference, Badge Component Specification, Button Component Specification, Card Component Specification, Dialog Modal Specification (+39 more)
+Cohesion: 0.10
+Nodes (45): Three-Layer Token Architecture (Primitive -> Semantic -> Component), Component Specifications Reference, Badge Component Specification, Button Component Specification, Card Component Specification, Dialog Modal Specification, Dropdown Menu Specification, Input Component Specification (+37 more)
 
 ### Community 6 - "db.js"
 Cohesion: 0.09
@@ -223,7 +226,7 @@ Nodes (34): $type, $value, $type, $value, $type, $value, $type, $value (+26 more
 
 ### Community 10 - "Brand Identity & Consistency Skill"
 Cohesion: 0.07
-Nodes (33): 22 Art Direction Styles, Banner Safe Zones & Visual Hierarchy Rules, Banner Sizes & Art Direction Reference Guide, Banner Platform Sizes & Aspect Ratio Specs, Banner Design Multi-Format Skill, Standard (Flash) vs Pro Image Generation Selection, Banner Creation Workflow & Export Pipeline, Marketing Asset Approval Checklist (+25 more)
+Nodes (35): 22 Art Direction Styles, Banner Safe Zones & Visual Hierarchy Rules, Banner Sizes & Art Direction Reference Guide, Banner Platform Sizes & Aspect Ratio Specs, Banner Design Multi-Format Skill, Standard (Flash) vs Pro Image Generation Selection, Banner Creation Workflow & Export Pipeline, Marketing Asset Approval Checklist (+27 more)
 
 ### Community 11 - "TestTailwindConfigGenerator"
 Cohesion: 0.06
@@ -249,9 +252,9 @@ Nodes (12): main(), Add custom font families. Args: fonts: Dict of font_type: [f
 Cohesion: 0.11
 Nodes (21): Slides Master Reference, Slides Copywriting Formulas Reference, High-Impact Headline and Social Proof Patterns, Persuasive Copywriting Formulas (PAS, AIDA, FAB, Before-After), Slide Type to Copywriting Formula Mapping, Slides Create Invocation Reference, Slides Skill Task Invocation Handler, Slides HTML Template Reference (+13 more)
 
-### Community 17 - "getShiftDate"
-Cohesion: 0.16
-Nodes (15): SHIFT_ROLLOVER_HOUR, loginAdmin(), SettingsAnalytics(), useAuthSession(), dateStr(), formatItemsCell(), formatTimeStr(), HistoryTab() (+7 more)
+### Community 17 - "transactions/components/HistoryTab.jsx"
+Cohesion: 0.24
+Nodes (8): dateStr(), formatItemsCell(), formatTimeStr(), HistoryTab(), SHIFT_CODE_MAP, shiftCode(), aggregateHistory(), getShiftDateStr()
 
 ### Community 18 - "generate-slide.py"
 Cohesion: 0.15
@@ -279,7 +282,7 @@ Nodes (16): $type, $value, $type, $value, $type, $value, $type, $value (+8 more)
 
 ### Community 24 - "TestShadcnInstaller"
 Cohesion: 0.12
-Nodes (9): Test adding components in dry run mode., Test ShadcnInstaller class., Test adding all components without config., Test adding all components in dry run mode., Test listing installed components without config., Test listing installed components when none exist., Test listing installed components when they exist., Test initialization with custom project root. (+1 more)
+Nodes (9): Test adding components in dry run mode., Test ShadcnInstaller class., Test adding all components without config., Test adding all components in dry run mode., Test listing installed components without config., Test listing installed components when none exist., Test initialization with custom project root., Test checking for non-existent shadcn config. (+1 more)
 
 ### Community 25 - "devDependencies"
 Cohesion: 0.13
@@ -298,8 +301,8 @@ Cohesion: 0.20
 Nodes (12): CIP Deliverable Guide, 50 Corporate Identity Deliverables Taxonomy, Office and Environmental Branding System, Stationery Deliverables Package, CIP Design Reference, CIP Industry Categories Guide, AI Mockup Generation System, CIP Workflow Process (+4 more)
 
 ### Community 29 - "App.jsx"
-Cohesion: 0.20
-Nodes (11): FooterNav(), PaymentModal(), PasswordVerificationModal(), usePOSData(), useRentalActions(), DeletionLogTab(), generateShortId(), normalizeItems() (+3 more)
+Cohesion: 0.24
+Nodes (11): App(), FooterNav(), PasswordVerificationModal(), usePOSData(), useRentalActions(), getShiftDate(), generateShortId(), normalizeItems() (+3 more)
 
 ### Community 30 - "validate-tokens.cjs"
 Cohesion: 0.24
@@ -307,7 +310,7 @@ Nodes (11): extensions, formatReport(), fs, getFiles(), main(), parseArgs(), pat
 
 ### Community 31 - "ShadcnInstaller"
 Cohesion: 0.20
-Nodes (7): main(), Handle shadcn/ui component installation., ShadcnInstaller, Tests for shadcn_add.py, Test initialization with default project root., Test checking for non-existent shadcn config., Test getting installed components without config.
+Nodes (7): main(), Handle shadcn/ui component installation., ShadcnInstaller, Tests for shadcn_add.py, Test listing installed components when they exist., Test getting installed components without config., Test adding components with empty list.
 
 ### Community 32 - ".check_shadcn_config"
 Cohesion: 0.21
@@ -326,8 +329,8 @@ Cohesion: 0.18
 Nodes (8): args, fs, minimal, MINIMAL_TOKENS, path, projectRoot, tokensPath, wrapStyle
 
 ### Community 36 - "primitive"
-Cohesion: 0.18
-Nodes (11): fast, normal, slow, $type, $value, $type, $value, primitive (+3 more)
+Cohesion: 0.14
+Nodes (13): dark, fast, normal, slow, $type, $value, $type, $value (+5 more)
 
 ### Community 37 - "patch"
 Cohesion: 0.18
@@ -346,8 +349,8 @@ Cohesion: 0.18
 Nodes (11): @google/gemini-cli, dependencies, @google/gemini-cli, react, react-dom, @supabase/supabase-js, sweetalert2, react (+3 more)
 
 ### Community 41 - "SettingsTab.jsx"
-Cohesion: 0.25
-Nodes (13): backupDatabase(), changeAdminPassword(), QRCodeModal(), SettingsTab(), EditActiveSessionModal(), getThemeVars(), makeMixin(), makeToast() (+5 more)
+Cohesion: 0.35
+Nodes (11): SettingsTab(), SettingsUsers(), EditActiveSessionModal(), getThemeVars(), makeMixin(), makeToast(), swalConfirm(), swalError() (+3 more)
 
 ### Community 42 - "logo/generate.py"
 Cohesion: 0.29
@@ -379,7 +382,7 @@ Nodes (9): Evren House Web Entrypoint, Theme Initializer (kw_theme), Google Apps
 
 ### Community 49 - "radius"
 Cohesion: 0.29
-Nodes (8): $type, $value, $type, $value, radius, default, full, default
+Nodes (8): xl, $type, $value, radius, full, xl, $type, $value
 
 ### Community 50 - "rentals/components/CalculateRentalModal.jsx"
 Cohesion: 0.25
@@ -409,10 +412,6 @@ Nodes (6): sm, shadow, sm, sm, $type, $value
 Cohesion: 0.47
 Nodes (6): UX & Performance Improvements Implementation Plan, Task 1: Extract LiveClock Component, Task 2: Add CSS Micro-Animations, Clock Re-render Isolation Architecture, UX & Performance Improvements Design Spec, Tactile Micro-Animation Feedback System
 
-### Community 58 - "react"
-Cohesion: 0.15
-Nodes (5): react, App(), ErrorBoundary, LiveClock(), RoleSelection()
-
 ### Community 59 - "Tasks"
 Cohesion: 0.12
 Nodes (16): File Structure Map, Global Constraints, Native Kotlin POS (kasir-mobile) Refactoring & Modernization Implementation Plan, Task 10: UI Layer — Payment Modal & Bluetooth Receipt Printing Handoff, Task 11: UI Layer — History Tab (Shift-Grouped) & Deletion Audit Log, Task 12: CI/CD & GitHub Actions Workflow for Android Build, Task 1: Project Scaffolding, Dependencies & Tablet Configuration, Task 2: Domain Layer — 10:59 Overtime Tolerance & Rental Pricing Engine (+8 more)
@@ -428,6 +427,10 @@ Nodes (5): Biaya & Transaksi, Operasional & Shift, Rental POS (Kasir DB), Sesi &
 ### Community 62 - "Design Spec: Penambahan Barang Sewa Sesi Berjalan & Penggabungan/Pemisahan Bill Akhir"
 Cohesion: 0.12
 Nodes (15): 1. Problem Statement & Latar Belakang, 2.1 Skema Item dalam Sesi (`session.items`), 2.2 Normalisasi Data (`src/lib/utils.js`), 2.3 Pelestarian Metadata pada Partial Return (`src/features/rentals/domain/rentalCalculations.js`), 2. Arsitektur & Perubahan Data Model, 3.1 Kartu Sesi Aktif (`DashboardTab.jsx` / `LiveSessionTimer`), 3.2 Modal Tambah Item (`AddItemModal.jsx`), 3.3 Templat Struk Tambahan (`generateAdditionalReceiptHTML`) (+7 more)
+
+### Community 63 - "receiptTemplates.js"
+Cohesion: 0.60
+Nodes (7): dateStr(), generateAdditionalReceiptHTML(), generateFinishReceiptHTML(), generateStartReceiptHTML(), getTrackUrl(), timeStr(), useReceiptPrinter()
 
 ### Community 64 - "lg"
 Cohesion: 0.60
@@ -445,9 +448,9 @@ Nodes (3): Google Apps Script Backend Setup Guide, Google Sheets Database Schema
 Cohesion: 0.25
 Nodes (8): Design Routing Guide, Design Skills Task Routing Matrix, Multi-Skill Workflow Orchestration, Task Dispatching Rules and Heuristics, Icon Design Reference, SVG Icon Generation Engine (Gemini 3.1 Pro), 15 Icon Styles and 10 Categories Taxonomy, SVG Icon Standards (viewBox 24x24, currentColor)
 
-### Community 74 - "xl"
-Cohesion: 0.67
-Nodes (4): xl, xl, $type, $value
+### Community 74 - "shift.js"
+Cohesion: 0.42
+Nodes (5): SHIFT_ROLLOVER_HOUR, loginAdmin(), useAuthSession(), checkShiftExpiration(), SHIFT_ROLLOVER_HOUR
 
 ### Community 75 - "md"
 Cohesion: 0.67
@@ -469,9 +472,13 @@ Nodes (12): Logo Design Reference, Logo Generation CLI and Search Tooling, Logo 
 Cohesion: 0.22
 Nodes (10): Banner Sizes and Styles Reference, Banner 22 Art Direction Styles, Banner Production QA Checklist, Banner Platform Dimensions and Aspect Ratios, Banner Layout and Safe Zone Rules, Social Photos Design Guide, Headless Chrome / Puppeteer Screenshot Export Pipeline, Social Photo HTML/CSS Canvas Rendering (+2 more)
 
-### Community 128 - "fmtRp"
-Cohesion: 0.20
-Nodes (16): trackSession(), DashboardTab(), LiveSessionTimer(), TrackingPage(), dateStr(), generateAdditionalReceiptHTML(), generateFinishReceiptHTML(), generateStartReceiptHTML() (+8 more)
+### Community 122 - "default"
+Cohesion: 0.67
+Nodes (4): $type, $value, default, default
+
+### Community 128 - "react"
+Cohesion: 0.15
+Nodes (15): react, trackSession(), DashboardTab(), LiveSessionTimer(), LiveClock(), PaymentModal(), QRCodeModal(), SettingsAnalytics() (+7 more)
 
 ### Community 133 - "Token Architecture Reference"
 Cohesion: 0.50
@@ -484,14 +491,14 @@ Nodes (7): CIP Style Guide, CIP Color Psychology and Material Finishes, CIP Desi
 ## Knowledge Gaps
 - **309 isolated node(s):** `fs`, `path`, `fs`, `path`, `fs` (+304 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **47 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **49 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `primitive` connect `primitive` to `gray`, `color`, `spacing`, `radius`, `fontSize`, `shadow`?**
+- **Why does `primitive` connect `primitive` to `gray`, `spacing`, `radius`, `fontSize`, `shadow`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
-- **Why does `component` connect `button` to `color`?**
+- **Why does `component` connect `button` to `primitive`?**
   _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **Why does `color` connect `gray` to `primitive`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
@@ -500,6 +507,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `fs`, `path`, `fs` to the rest of the system?**
   _309 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `api.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.13968253968253969 - nodes in this community are weakly interconnected._
 - **Should `gray` be split into smaller, more focused modules?**
   _Cohesion score 0.05370101596516691 - nodes in this community are weakly interconnected._

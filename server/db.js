@@ -242,7 +242,7 @@ export function addSession(payload) {
   const existing = db.prepare('SELECT queue_no FROM active_sessions WHERE id = ?').get(id);
   if (existing) {
     queueNo = Number(existing.queue_no) || 0;
-  } else if (queueNo <= 0) {
+  } else {
     const q = db.prepare(`
       SELECT COALESCE(MAX(q), 0) + 1 AS nextQ FROM (
         SELECT queue_no AS q FROM active_sessions WHERE tanggal = ?
@@ -250,7 +250,13 @@ export function addSession(payload) {
         SELECT queue_no AS q FROM transactions WHERE tanggal = ?
       )
     `).get(tanggal, tanggal);
-    queueNo = Number(q.nextQ) || 1;
+    const nextQ = Number(q.nextQ) || 1;
+    // Guard: only allow client-specified queueNo if it does not leap ahead of nextQ
+    if (queueNo > 0 && queueNo <= nextQ) {
+      // keep it
+    } else {
+      queueNo = nextQ;
+    }
   }
 
   const stmt = db.prepare(`

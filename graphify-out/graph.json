@@ -1043,6 +1043,54 @@
       "source_location": "L44"
     },
     {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_ansi_ljust",
+      "label": "ansi_ljust()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "format_ascii_box",
+      "file_type": "code",
+      "norm_label": "ansi_ljust()",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L348"
+    },
+    {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_format_ascii_box",
+      "label": "format_ascii_box()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "format_ascii_box",
+      "file_type": "code",
+      "norm_label": "format_ascii_box()",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L363"
+    },
+    {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_hex_to_ansi",
+      "label": "hex_to_ansi()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "format_ascii_box",
+      "file_type": "code",
+      "norm_label": "hex_to_ansi()",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L334"
+    },
+    {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_section_header",
+      "label": "section_header()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "format_ascii_box",
+      "file_type": "code",
+      "norm_label": "section_header()",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L356"
+    },
+    {
       "id": "src_api_tracksession",
       "label": "trackSession()",
       "_callable": true,
@@ -1787,6 +1835,18 @@
       "source_location": "L164"
     },
     {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_resolve_dial",
+      "label": "_resolve_dial()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "DesignSystemGenerator",
+      "file_type": "code",
+      "norm_label": "_resolve_dial()",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L67"
+    },
+    {
       "id": "agents_skills_design_scripts_cip_core_bm25_fit",
       "label": ".fit()",
       "_callable": true,
@@ -2183,6 +2243,18 @@
       "source_location": "L20"
     },
     {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_format_markdown",
+      "label": "format_markdown()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "generate_design_system",
+      "file_type": "code",
+      "norm_label": "format_markdown()",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L526"
+    },
+    {
       "id": "agents_skills_ui_ux_pro_max_scripts_design_system_generate_design_system",
       "label": "generate_design_system()",
       "_callable": true,
@@ -2193,30 +2265,6 @@
       "norm_label": "generate_design_system()",
       "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
       "source_location": "L666"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_persist_design_system",
-      "label": "persist_design_system()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "generate_design_system",
-      "file_type": "code",
-      "norm_label": "persist_design_system()",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L710"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_safe_slug",
-      "label": "safe_slug()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "generate_design_system",
-      "file_type": "code",
-      "norm_label": "safe_slug()",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L699"
     },
     {
       "id": "agents_skills_ui_ux_pro_max_scripts_search_format_output",
@@ -3923,18 +3971,6 @@
       "source_location": "L111"
     },
     {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_ansi_ljust",
-      "label": "ansi_ljust()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 55,
-      "community_name": "design_system.py",
-      "file_type": "code",
-      "norm_label": "ansi_ljust()",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L348"
-    },
-    {
       "id": "agents_skills_ui_ux_pro_max_scripts_design_system_detect_page_type",
       "label": "_detect_page_type()",
       "_callable": true,
@@ -3945,30 +3981,6 @@
       "norm_label": "_detect_page_type()",
       "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
       "source_location": "L1293"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_format_ascii_box",
-      "label": "format_ascii_box()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 55,
-      "community_name": "design_system.py",
-      "file_type": "code",
-      "norm_label": "format_ascii_box()",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L363"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_format_markdown",
-      "label": "format_markdown()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 55,
-      "community_name": "design_system.py",
-      "file_type": "code",
-      "norm_label": "format_markdown()",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L526"
     },
     {
       "id": "agents_skills_ui_ux_pro_max_scripts_design_system_format_master_md",
@@ -4007,40 +4019,28 @@
       "source_location": "L1187"
     },
     {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_hex_to_ansi",
-      "label": "hex_to_ansi()",
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_persist_design_system",
+      "label": "persist_design_system()",
       "_callable": true,
       "_origin": "ast",
       "community": 55,
       "community_name": "design_system.py",
       "file_type": "code",
-      "norm_label": "hex_to_ansi()",
+      "norm_label": "persist_design_system()",
       "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L334"
+      "source_location": "L710"
     },
     {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_resolve_dial",
-      "label": "_resolve_dial()",
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_safe_slug",
+      "label": "safe_slug()",
       "_callable": true,
       "_origin": "ast",
       "community": 55,
       "community_name": "design_system.py",
       "file_type": "code",
-      "norm_label": "_resolve_dial()",
+      "norm_label": "safe_slug()",
       "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L67"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_section_header",
-      "label": "section_header()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 55,
-      "community_name": "design_system.py",
-      "file_type": "code",
-      "norm_label": "section_header()",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L356"
+      "source_location": "L699"
     },
     {
       "id": "src_components_errorboundary_errorboundary_componentdidcatch",
@@ -4112,7 +4112,7 @@
       "file_type": "code",
       "norm_label": "adddeletedtxntodb()",
       "source_file": "server/db.js",
-      "source_location": "L408"
+      "source_location": "L414"
     },
     {
       "id": "server_db_adddeletionlog",
@@ -4124,7 +4124,7 @@
       "file_type": "code",
       "norm_label": "adddeletionlog()",
       "source_file": "server/db.js",
-      "source_location": "L438"
+      "source_location": "L444"
     },
     {
       "id": "server_db_addsession",
@@ -4148,7 +4148,7 @@
       "file_type": "code",
       "norm_label": "backupdatabase()",
       "source_file": "server/db.js",
-      "source_location": "L560"
+      "source_location": "L566"
     },
     {
       "id": "server_db_changeadminpassword",
@@ -4160,7 +4160,7 @@
       "file_type": "code",
       "norm_label": "changeadminpassword()",
       "source_file": "server/db.js",
-      "source_location": "L485"
+      "source_location": "L491"
     },
     {
       "id": "server_db_claimsession",
@@ -4172,7 +4172,7 @@
       "file_type": "code",
       "norm_label": "claimsession()",
       "source_file": "server/db.js",
-      "source_location": "L310"
+      "source_location": "L316"
     },
     {
       "id": "server_db_clearalltxns",
@@ -4184,7 +4184,7 @@
       "file_type": "code",
       "norm_label": "clearalltxns()",
       "source_file": "server/db.js",
-      "source_location": "L402"
+      "source_location": "L408"
     },
     {
       "id": "server_db_deletesession",
@@ -4196,7 +4196,7 @@
       "file_type": "code",
       "norm_label": "deletesession()",
       "source_file": "server/db.js",
-      "source_location": "L304"
+      "source_location": "L310"
     },
     {
       "id": "server_db_deletetxn",
@@ -4208,7 +4208,7 @@
       "file_type": "code",
       "norm_label": "deletetxn()",
       "source_file": "server/db.js",
-      "source_location": "L419"
+      "source_location": "L425"
     },
     {
       "id": "server_db_deleteuser",
@@ -4220,7 +4220,7 @@
       "file_type": "code",
       "norm_label": "deleteuser()",
       "source_file": "server/db.js",
-      "source_location": "L396"
+      "source_location": "L402"
     },
     {
       "id": "server_db_editsession",
@@ -4232,7 +4232,7 @@
       "file_type": "code",
       "norm_label": "editsession()",
       "source_file": "server/db.js",
-      "source_location": "L274"
+      "source_location": "L280"
     },
     {
       "id": "server_db_fetchalldata",
@@ -4292,7 +4292,7 @@
       "file_type": "code",
       "norm_label": "getdeletionlogs()",
       "source_file": "server/db.js",
-      "source_location": "L459"
+      "source_location": "L465"
     },
     {
       "id": "server_db_handleaction",
@@ -4304,7 +4304,7 @@
       "file_type": "code",
       "norm_label": "handleaction()",
       "source_file": "server/db.js",
-      "source_location": "L575"
+      "source_location": "L581"
     },
     {
       "id": "server_db_initdb",
@@ -4340,7 +4340,7 @@
       "file_type": "code",
       "norm_label": "loginadmin()",
       "source_file": "server/db.js",
-      "source_location": "L496"
+      "source_location": "L502"
     },
     {
       "id": "server_db_logincashier",
@@ -4352,7 +4352,7 @@
       "file_type": "code",
       "norm_label": "logincashier()",
       "source_file": "server/db.js",
-      "source_location": "L535"
+      "source_location": "L541"
     },
     {
       "id": "server_db_parsejson",
@@ -4400,7 +4400,7 @@
       "file_type": "code",
       "norm_label": "savesetting()",
       "source_file": "server/db.js",
-      "source_location": "L384"
+      "source_location": "L390"
     },
     {
       "id": "server_db_saveuser",
@@ -4412,7 +4412,7 @@
       "file_type": "code",
       "norm_label": "saveuser()",
       "source_file": "server/db.js",
-      "source_location": "L390"
+      "source_location": "L396"
     },
     {
       "id": "server_db_shiftdatestr",
@@ -4436,7 +4436,7 @@
       "file_type": "code",
       "norm_label": "tracksession()",
       "source_file": "server/db.js",
-      "source_location": "L524"
+      "source_location": "L530"
     },
     {
       "id": "server_db_verifyadmin",
@@ -4448,7 +4448,7 @@
       "file_type": "code",
       "norm_label": "verifyadmin()",
       "source_file": "server/db.js",
-      "source_location": "L514"
+      "source_location": "L520"
     },
     {
       "id": "server_db_verifyadminpassword",
@@ -4460,7 +4460,7 @@
       "file_type": "code",
       "norm_label": "verifyadminpassword()",
       "source_file": "server/db.js",
-      "source_location": "L479"
+      "source_location": "L485"
     },
     {
       "id": "server_index_createhttpserver",
@@ -6356,6 +6356,50 @@
       "source_location": "L45"
     },
     {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_335",
+      "label": "Convert hex color to ANSI True Color swatch (\u2588\u2588) with fallback.",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "format_ascii_box",
+      "file_type": "rationale",
+      "norm_label": "convert hex color to ansi true color swatch (\u2588\u2588) with fallback.",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L335"
+    },
+    {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_349",
+      "label": "Like str.ljust but accounts for zero-width ANSI escape sequences.",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "format_ascii_box",
+      "file_type": "rationale",
+      "norm_label": "like str.ljust but accounts for zero-width ansi escape sequences.",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L349"
+    },
+    {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_357",
+      "label": "Create a Unicode section separator: \u251c\u2500\u2500\u2500 NAME \u2500\u2500\u2500...\u2524",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "format_ascii_box",
+      "file_type": "rationale",
+      "norm_label": "create a unicode section separator: \u251c\u2500\u2500\u2500 name \u2500\u2500\u2500...\u2524",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L357"
+    },
+    {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_364",
+      "label": "Format design system as Unicode box with ANSI color swatches.",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "format_ascii_box",
+      "file_type": "rationale",
+      "norm_label": "format design system as unicode box with ansi color swatches.",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L364"
+    },
+    {
       "id": "src_components_dashboardtab",
       "label": "DashboardTab.jsx",
       "_origin": "ast",
@@ -7060,6 +7104,17 @@
       "source_location": "L207"
     },
     {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_68",
+      "label": "Bucket a 1-10 dial value into its tier config. Returns None if value is None.",
+      "_origin": "ast",
+      "community": 19,
+      "community_name": "DesignSystemGenerator",
+      "file_type": "rationale",
+      "norm_label": "bucket a 1-10 dial value into its tier config. returns none if value is none.",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L68"
+    },
+    {
       "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_80",
       "label": "Generates design system recommendations from aggregated searches.",
       "_origin": "ast",
@@ -7478,6 +7533,17 @@
       "source_location": "L1"
     },
     {
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_527",
+      "label": "Format design system as markdown.",
+      "_origin": "ast",
+      "community": 21,
+      "community_name": "generate_design_system",
+      "file_type": "rationale",
+      "norm_label": "format design system as markdown.",
+      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
+      "source_location": "L527"
+    },
+    {
       "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_669",
       "label": "Main entry point for design system generation. Args: query: Search query (e.g.,\u2026",
       "_origin": "ast",
@@ -7487,28 +7553,6 @@
       "norm_label": "main entry point for design system generation. args: query: search query (e.g.,...",
       "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
       "source_location": "L669"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_700",
-      "label": "Slugify a name into a single safe path segment. Only [a-z0-9_-] survives; every\u2026",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "generate_design_system",
-      "file_type": "rationale",
-      "norm_label": "slugify a name into a single safe path segment. only [a-z0-9_-] survives; every...",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L700"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_711",
-      "label": "Persist design system to design-system/<project>/ folder using Master +\u2026",
-      "_origin": "ast",
-      "community": 21,
-      "community_name": "generate_design_system",
-      "file_type": "rationale",
-      "norm_label": "persist design system to design-system/<project>/ folder using master +...",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L711"
     },
     {
       "id": "agents_skills_ui_ux_pro_max_scripts_search_rationale_40",
@@ -10547,70 +10591,26 @@
       "source_location": "L1294"
     },
     {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_335",
-      "label": "Convert hex color to ANSI True Color swatch (\u2588\u2588) with fallback.",
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_700",
+      "label": "Slugify a name into a single safe path segment. Only [a-z0-9_-] survives; every\u2026",
       "_origin": "ast",
       "community": 55,
       "community_name": "design_system.py",
       "file_type": "rationale",
-      "norm_label": "convert hex color to ansi true color swatch (\u2588\u2588) with fallback.",
+      "norm_label": "slugify a name into a single safe path segment. only [a-z0-9_-] survives; every...",
       "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L335"
+      "source_location": "L700"
     },
     {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_349",
-      "label": "Like str.ljust but accounts for zero-width ANSI escape sequences.",
+      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_711",
+      "label": "Persist design system to design-system/<project>/ folder using Master +\u2026",
       "_origin": "ast",
       "community": 55,
       "community_name": "design_system.py",
       "file_type": "rationale",
-      "norm_label": "like str.ljust but accounts for zero-width ansi escape sequences.",
+      "norm_label": "persist design system to design-system/<project>/ folder using master +...",
       "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L349"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_357",
-      "label": "Create a Unicode section separator: \u251c\u2500\u2500\u2500 NAME \u2500\u2500\u2500...\u2524",
-      "_origin": "ast",
-      "community": 55,
-      "community_name": "design_system.py",
-      "file_type": "rationale",
-      "norm_label": "create a unicode section separator: \u251c\u2500\u2500\u2500 name \u2500\u2500\u2500...\u2524",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L357"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_364",
-      "label": "Format design system as Unicode box with ANSI color swatches.",
-      "_origin": "ast",
-      "community": 55,
-      "community_name": "design_system.py",
-      "file_type": "rationale",
-      "norm_label": "format design system as unicode box with ansi color swatches.",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L364"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_527",
-      "label": "Format design system as markdown.",
-      "_origin": "ast",
-      "community": 55,
-      "community_name": "design_system.py",
-      "file_type": "rationale",
-      "norm_label": "format design system as markdown.",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L527"
-    },
-    {
-      "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_68",
-      "label": "Bucket a 1-10 dial value into its tier config. Returns None if value is None.",
-      "_origin": "ast",
-      "community": 55,
-      "community_name": "design_system.py",
-      "file_type": "rationale",
-      "norm_label": "bucket a 1-10 dial value into its tier config. returns none if value is none.",
-      "source_file": ".agents/skills/ui-ux-pro-max/scripts/design_system.py",
-      "source_location": "L68"
+      "source_location": "L711"
     },
     {
       "id": "agents_skills_ui_ux_pro_max_scripts_design_system_rationale_762",
@@ -20434,7 +20434,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L410",
+      "source_location": "L416",
       "weight": 1.0
     },
     {
@@ -20446,7 +20446,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L415",
+      "source_location": "L421",
       "weight": 1.0
     },
     {
@@ -20470,7 +20470,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L271",
+      "source_location": "L277",
       "weight": 1.0
     },
     {
@@ -20482,7 +20482,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L486",
+      "source_location": "L492",
       "weight": 1.0
     },
     {
@@ -20494,7 +20494,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L488",
+      "source_location": "L494",
       "weight": 1.0
     },
     {
@@ -20506,7 +20506,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L377",
+      "source_location": "L383",
       "weight": 1.0
     },
     {
@@ -20518,7 +20518,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L404",
+      "source_location": "L410",
       "weight": 1.0
     },
     {
@@ -20530,7 +20530,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L421",
+      "source_location": "L427",
       "weight": 1.0
     },
     {
@@ -20542,7 +20542,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L434",
+      "source_location": "L440",
       "weight": 1.0
     },
     {
@@ -20554,7 +20554,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L283",
+      "source_location": "L289",
       "weight": 1.0
     },
     {
@@ -20590,7 +20590,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L589",
+      "source_location": "L595",
       "weight": 1.0
     },
     {
@@ -20602,7 +20602,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L591",
+      "source_location": "L597",
       "weight": 1.0
     },
     {
@@ -20614,7 +20614,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L593",
+      "source_location": "L599",
       "weight": 1.0
     },
     {
@@ -20626,7 +20626,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L595",
+      "source_location": "L601",
       "weight": 1.0
     },
     {
@@ -20638,7 +20638,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L597",
+      "source_location": "L603",
       "weight": 1.0
     },
     {
@@ -20650,7 +20650,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L599",
+      "source_location": "L605",
       "weight": 1.0
     },
     {
@@ -20662,7 +20662,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L601",
+      "source_location": "L607",
       "weight": 1.0
     },
     {
@@ -20674,7 +20674,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L603",
+      "source_location": "L609",
       "weight": 1.0
     },
     {
@@ -20686,7 +20686,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L605",
+      "source_location": "L611",
       "weight": 1.0
     },
     {
@@ -20698,7 +20698,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L607",
+      "source_location": "L613",
       "weight": 1.0
     },
     {
@@ -20710,7 +20710,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L609",
+      "source_location": "L615",
       "weight": 1.0
     },
     {
@@ -20722,7 +20722,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L611",
+      "source_location": "L617",
       "weight": 1.0
     },
     {
@@ -20734,7 +20734,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L613",
+      "source_location": "L619",
       "weight": 1.0
     },
     {
@@ -20746,7 +20746,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L615",
+      "source_location": "L621",
       "weight": 1.0
     },
     {
@@ -20758,7 +20758,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L617",
+      "source_location": "L623",
       "weight": 1.0
     },
     {
@@ -20770,7 +20770,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L619",
+      "source_location": "L625",
       "weight": 1.0
     },
     {
@@ -20782,7 +20782,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L621",
+      "source_location": "L627",
       "weight": 1.0
     },
     {
@@ -20794,7 +20794,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L623",
+      "source_location": "L629",
       "weight": 1.0
     },
     {
@@ -20806,7 +20806,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L499",
+      "source_location": "L505",
       "weight": 1.0
     },
     {
@@ -20818,7 +20818,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L505",
+      "source_location": "L511",
       "weight": 1.0
     },
     {
@@ -20830,7 +20830,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L556",
+      "source_location": "L562",
       "weight": 1.0
     },
     {
@@ -20842,7 +20842,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L529",
+      "source_location": "L535",
       "weight": 1.0
     },
     {
@@ -20854,7 +20854,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L531",
+      "source_location": "L537",
       "weight": 1.0
     },
     {
@@ -20866,7 +20866,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L516",
+      "source_location": "L522",
       "weight": 1.0
     },
     {
@@ -20878,7 +20878,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "server/db.js",
-      "source_location": "L517",
+      "source_location": "L523",
       "weight": 1.0
     },
     {
@@ -33947,7 +33947,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L274",
+      "source_location": "L280",
       "weight": 1.0
     },
     {
@@ -33958,7 +33958,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L304",
+      "source_location": "L310",
       "weight": 1.0
     },
     {
@@ -33969,7 +33969,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L310",
+      "source_location": "L316",
       "weight": 1.0
     },
     {
@@ -33991,7 +33991,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L384",
+      "source_location": "L390",
       "weight": 1.0
     },
     {
@@ -34002,7 +34002,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L390",
+      "source_location": "L396",
       "weight": 1.0
     },
     {
@@ -34013,7 +34013,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L396",
+      "source_location": "L402",
       "weight": 1.0
     },
     {
@@ -34024,7 +34024,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L402",
+      "source_location": "L408",
       "weight": 1.0
     },
     {
@@ -34035,7 +34035,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L408",
+      "source_location": "L414",
       "weight": 1.0
     },
     {
@@ -34046,7 +34046,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L419",
+      "source_location": "L425",
       "weight": 1.0
     },
     {
@@ -34057,7 +34057,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L438",
+      "source_location": "L444",
       "weight": 1.0
     },
     {
@@ -34068,23 +34068,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L459",
+      "source_location": "L465",
       "weight": 1.0
     },
     {
       "source": "server_db",
       "target": "server_db_verifyadminpassword",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/db.js",
-      "source_location": "L479",
-      "weight": 1.0
-    },
-    {
-      "source": "server_db",
-      "target": "server_db_changeadminpassword",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -34106,13 +34095,24 @@
     },
     {
       "source": "server_db",
+      "target": "server_db_changeadminpassword",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/db.js",
+      "source_location": "L491",
+      "weight": 1.0
+    },
+    {
+      "source": "server_db",
       "target": "server_db_loginadmin",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L496",
+      "source_location": "L502",
       "weight": 1.0
     },
     {
@@ -34123,18 +34123,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L514",
-      "weight": 1.0
-    },
-    {
-      "source": "server_db",
-      "target": "server_db_tracksession",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "server/db.js",
-      "source_location": "L524",
+      "source_location": "L520",
       "weight": 1.0
     },
     {
@@ -34150,13 +34139,24 @@
     },
     {
       "source": "server_db",
+      "target": "server_db_tracksession",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "server/db.js",
+      "source_location": "L530",
+      "weight": 1.0
+    },
+    {
+      "source": "server_db",
       "target": "server_db_logincashier",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L535",
+      "source_location": "L541",
       "weight": 1.0
     },
     {
@@ -34167,7 +34167,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L560",
+      "source_location": "L566",
       "weight": 1.0
     },
     {
@@ -34178,7 +34178,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "server/db.js",
-      "source_location": "L575",
+      "source_location": "L581",
       "weight": 1.0
     },
     {
@@ -43162,5 +43162,5 @@
       "source_file": "docs/google-apps-script/README.md"
     }
   ],
-  "built_at_commit": "524172fab1879843b1fb24e2448c0798b6f13bf0"
+  "built_at_commit": "f89436939784b5c3444afa3dbb5b07ee4426dfa3"
 }
